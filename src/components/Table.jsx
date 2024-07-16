@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const Table = ({ columns, data }) => {
   const router = useRouter();
   const handleClick = (e) => {
-    router.push(`/Chat/${e}`);
+    // router.push(`/ProfilePatient/${e}`);
   };
   return (
     <table className="table table-hover">
@@ -22,17 +22,22 @@ const Table = ({ columns, data }) => {
           <tr key={rowIndex}>
             {columns.map((column) => (
               <td key={column.accessor}>
-                {column.accessor === "name" ? (
+                {column.accessor === "name" ? 
+                (
                   <div className="d-flex align-items-center">
                     <span>{row[column.accessor]}</span>
                   </div>
-                ) : column.accessor === "actions" ? (
-                  <button
-                    onClick={() => handleClick(row.name)}
-                    className="btn btn-primary btn-sm"
-                  >
-                    envoyer un message
-                  </button>
+                ) 
+                :
+                column.accessor === "actions" ? 
+                (
+                  // <button
+                  //   onClick={() => handleClick(row.name)}
+                  //   className="btn btn-primary btn-sm"
+                  // >
+                  //   envoyer un message
+                  // </button>
+                  <div></div>
                 ) : (
                   row[column.accessor]
                 )}

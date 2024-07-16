@@ -37,12 +37,12 @@ const Home = () => {
               <div className="col-sm-12">
                 <ul className="breadcrumb">
                   <li className="breadcrumb-item">
-                    <Link href="/">Page d'accueil </Link>
+                    <Link href="/">Page d'accueil</Link>
                   </li>
                   <li className="breadcrumb-item">
                     <FeatherIcon icon="chevron-right" />
                   </li>
-                  <li className="breadcrumb-item active">tableau de bord</li>
+                  <li className="breadcrumb-item active">Page d'accueil</li>
                 </ul>
               </div>
             </div>
