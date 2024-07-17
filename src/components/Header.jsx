@@ -1,5 +1,7 @@
 "use client";
 import "@assets/css/style.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.js";
 import Link from "next/link";
 import { useEffect } from "react";
 import {
@@ -321,7 +323,7 @@ const Header = () => {
               <Image src={user06} alt="Admin" className="user-img" />
             </Link>
             <div className="dropdown-menu">
-              <Link href="/" className="dropdown-item">
+              <Link href="/MonProfil" className="dropdown-item">
                 My Profile
               </Link>
               <Link href="/Modifier-profil" className="dropdown-item">
