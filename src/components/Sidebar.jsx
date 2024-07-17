@@ -71,7 +71,7 @@ const Sidebar = (props) => {
                   className={
                     props?.activeClassName === "chat" ? "active" : ""
                   }
-                  href="/Modifier-profil"
+                  href="/ModifierProfil"
                 >
                   <span className="menu-side">
                     <Image src={doctor} alt="" />
