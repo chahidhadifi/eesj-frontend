@@ -1,10 +1,27 @@
-import React from 'react'
-import Sidebar from "@components/Sidebar";
+"use client";
+
 import "@assets/css/style.css";
-import FeatherIcon from 'feather-icons-react/build/FeatherIcon'
+
+import React from 'react'
+import { useEffect, useState } from "react";
 import Link from 'next/link'
+
+import Sidebar from "@components/Sidebar";
+
+import FeatherIcon from 'feather-icons-react/build/FeatherIcon'
 import { Profileuser, cameraicon, doctor, medalicon, medalicon02, medalicon03, menuicon16 } from '@components/imagepath'
+
+import * as bootstrap from 'bootstrap';
+import 'boxicons';
+
 const MonProfile = () => {
+
+    useEffect(() => {
+        window.bootstrap = bootstrap;
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    }, [])
+
     return (
         <>
             
@@ -81,7 +98,7 @@ const MonProfile = () => {
                                                                 </div>
                                                                 <div className="col-12 col-sm-12">
                                                                     <div className="form-group local-forms">
-                                                                        <label>Nom d'utilisateur </label>
+                                                                        <label>Nom d'utilisateur <span  data-bs-toggle="tooltip" data-bs-title="Le nom qu'une personne utilise pour s'identifier sur un système informatique, un site web, ou une application."><box-icon type='solid' name='help-circle' size='xs' color='#2e37a4'></box-icon></span> </label>
                                                                         <input className="form-control" type="text" defaultValue="brucewillis@29" />
                                                                     </div>
                                                                 </div>
