@@ -4,8 +4,11 @@ export { default as loginicon01 } from "../assets/img/icons/login-icon-01.svg";
 export { default as loginicon02 } from "../assets/img/icons/login-icon-02.svg";
 export { default as loginicon03 } from "../assets/img/icons/login-icon-03.svg";
 export { default as logout } from "../assets/img/icons/logout.svg";
-
+export {default as bu } from "../assets/img/icons/bu.png";
 export { default as logo } from "../assets/img/logo.png";
+export {default as gp} from "../assets/img/icons/patient.png"
+export {default as tv} from "../assets/img/icons/television.png"
+export {default as cb} from "../assets/img/icons/chatbot.png"
 
 export { default as baricon } from "../assets/img/icons/bar-icon.svg";
 export { default as baricon1 } from "../assets/img/icons/bar-icon.svg";

@@ -12,7 +12,7 @@ user-profile-list
 3. Helper Class
 4. Bootstrap Classes
 5. Header
-6. Sidebar
+6. sidebar2
 7. Content
 8. Login
 9. Dashboard
@@ -29,7 +29,7 @@ user-profile-list
 20. Profile
 21. Notifications
 22. Roles & Permissions
-23. Chat Right Sidebar
+23. Chat Right sidebar2
 24. Invoice
 25. Doctors
 26. Add Doctor
@@ -46,7 +46,7 @@ user-profile-list
 37. Video Call
 38. Incoming call
 39. Notification settings
-40. Chat Sidebar
+40. Chat sidebar2
 41. Gallery
 42. Settings
 43. Responsive
@@ -992,6 +992,7 @@ textarea.form-control {
 }
 .sidebar-inner {
   height: 100%;
+  width: 250px;
   transition: all 0.2s ease-in-out 0s;
 }
 .sidebar-menu ul {
@@ -1024,9 +1025,12 @@ textarea.form-control {
 }
 .menu-title {
   color: #333;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 12px 20px;
+  font-size: 17px;
+  font-weight: 530;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
+  margin-left: 35px;
 }
 .menu-title > i {
   float: right;
@@ -1036,7 +1040,6 @@ textarea.form-control {
   color: #009efb;
   display: inline-block;
   float: right;
-  padding: 0;
 }
 .sidebar-menu li.menu-title a.btn {
   color: #fff;
@@ -1724,6 +1727,32 @@ ul.chat-user-total li i.old-users {
   background: transparent;
   color: #000;
 }
+
+.filterr {
+  margin-left: 10px;
+  background: rgba(46, 55, 164, 0.05);
+  border-radius: 12px;
+  border: 0;
+  height: 40px;
+  padding: 8px 10px 10px 30px;
+  width: 100px;
+  color: #2e37a4; /* Set initial text color */
+  transition: all ease-in-out 0.3s;
+}
+
+.filterr:hover {
+  background: linear-gradient(92.39deg, #2e37a4 1.86%, #00318b 100%);
+  border: 1px solid #00318b;
+  color: #fff; /* Text color on hover */
+
+}
+
+.filterr:active {
+  background: linear-gradient(92.39deg, #2e37a4 1.86%, #00318b 100%);
+  border: 1px solid #00318b;
+  color: #fff; /* Text color on click */
+}
+
 .btn-primary-three {
   border: 1px solid #55ce63;
   border-radius: 25px;
@@ -2036,6 +2065,7 @@ table.dataTable thead .sorting_desc_disabled:after {
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 25px;
+  width : 300px;
 }
 .doctor-widget {
   display: -webkit-box;
@@ -2079,6 +2109,7 @@ table.dataTable thead .sorting_desc_disabled:after {
 .doctor-content h5 {
   font-size: 14px;
   margin-bottom: 0;
+  
 }
 .doctor-content h4 span:nth-child(2) {
   font-size: 14px;
@@ -5643,6 +5674,10 @@ html.menu-opened body {
   margin-right: 0;
   z-index: 9;
 }
+.open-filter-box .notification-box {
+  margin-right: 0;
+  z-index: 9;
+}
 .msg-sidebar {
   background-color: #fff;
 }
@@ -6498,7 +6533,7 @@ a.status-red {
 .status-green,
 a.status-green {
   background: rgba(0, 211, 199, 0.1);
-  color: #00d3c7;
+  color: #43A047;
 }
 .status-orange,
 a.status-orange {
@@ -6674,33 +6709,24 @@ a.status-grey {
   border-radius: 10px;
 }
 .profile-user-box {
-  padding: 40px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  gap:30px;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  
 }
-.grey-br {
-  border-top: 1px solid rgba(128, 128, 128, 0.21); /* Grey line with reduced opacity */
-  margin: 30px 0; /* Space above and below the line */
-}
-
 .profile-user-img {
+  margin-right: 20px;
   position: relative;
+  top: -30px;
 }
 .profile-user-img img {
   border-radius: 50%;
   width: 141px;
-}
-.names-profiles{
-  width:250px;
 }
 .names-profiles h4 {
   font-size: 18px;
@@ -10018,8 +10044,12 @@ textarea.form-control {
     color: #fff;
     float: left;
     font-size: 20px;
-    line-height: 70px;
-    padding: 0 10px;
+    line-height: 50px;
+    padding-right: 20px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 7px;
+    z-index: 0;
   }
   .user-active .call-imgs {
     width: 100%;
@@ -11221,6 +11251,7 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
 
 /*Formulaire*/
 
+/* Discussions Styling */
 .discussion-list {
   display: flex;
   flex-wrap: wrap;
@@ -11230,14 +11261,19 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
 .discussion-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 45%;
   margin: 2.5%;
   padding: 20px;
   background-color: #fff;
   color: #2f38a3;
   border-radius: 50px;
+  display: inline-block;
+  vertical-align: top;
   box-sizing: border-box;
+}
+
+.doctor-info {
+  margin-left: 5px;
 }
 
 .discussion-header {
@@ -11249,8 +11285,8 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
 
 .discussion-header img,
 .discussion-header .initials {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -11262,7 +11298,7 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
   background-color: #03d2c5;
   color: #fff;
   font-weight: bold;
-  font-size: 27px;
+  font-size: 32px;
 }
 
 .discussion-header .doctor-info {
@@ -11271,14 +11307,14 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
 
 .discussion-header .doctor-info h4 {
   margin-bottom: 5px;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bolder;
   color: #2f38a3;
 }
 
 .discussion-header .doctor-info p {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   color: #bdc0e3;
 }
 
@@ -11288,21 +11324,19 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
   margin: 20px 0;
   width: 100%;
 }
-
 .discussion-body {
   margin-left: 20px;
 }
-
 .discussion-body h5 {
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 23px;
   color: #2f38a3;
   font-weight: bold;
 }
 
 .discussion-body p {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #bdc0e3;
   font-weight: 600;
 }
@@ -11312,17 +11346,17 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
   color: #21c6b7;
   font-weight: bold;
 }
-
 .join-button {
   border: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   background-color: #2f38a3;
   color: #fff;
   border-radius: 25px;
   align-self: flex-end;
   margin-top: auto;
-  padding: 10px 20px;
+  margin-left: 75%;
+  padding: 12px 24px;
   cursor: pointer;
 }
 
@@ -11330,248 +11364,12 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
   background-color: #00d3c7;
   color: white;
 }
-.buttons {
-  align-self: flex-end;
-  margin-top: 15px;
-}
-.accept-button {
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #55ce63;
-  color: #fff;
-  border-radius: 25px;
-  align-self: flex-end;
-  margin-top: auto;
-  margin-right: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.accept-button:hover {
-  transform: scale(1.1);
-}
-
-.reject-button {
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #f62d51;
-  color: #fff;
-  border-radius: 25px;
-  align-self: flex-end;
-  margin-top: auto;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.reject-button:hover {
-  transform: scale(1.1);
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.table th {
-  background-color: #f8f8f8;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.table td {
-  font-size: 15px;
-}
-
-.discussion-cree-item {
-  background-color: #fff;
-}
-
-.joindre-button {
-  border: none;
-  background-color: #2f38a3;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.joindre-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.launch-button {
-  border: none;
-  background-color: #03d2c5;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.launch-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-.download-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.DiscussionTitle {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 2px;
-}
-
-.DiscussionCas {
-  font-size: 15px;
-  font-weight: 500;
-  font-style: italic;
-  color: #acafdc;
-  margin-bottom: 10px;
-}
-
-.DiscussionMotif {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 14px;
-}
-
-.Traitements {
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 3px;
-  color: #2f38a3;
-}
-.Fichiers {
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: #2f38a3;
-}
-
-.DiscussionTraitement {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.infoDisc {
-  margin-bottom: 20px;
-  color: #2f38a3;
-}
 
 /* Create button*/
 .button-creation {
   border-color: #2f38a3;
   background-color: #2f38a3;
   border-radius: 20px;
-}
-
-/*Formulaire*/
-.card-titles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.custom-width-11-5 {
-  width: 97%;
-}
-
-.custom-width-9-5 {
-  width: 93%;
-}
-
-.preview-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-.preview-container2 {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-.file-preview {
-  width: 130px;
-  height: 130px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: transparent;
-  border-radius: 5px;
-  flex-direction: column;
-}
-.file-preview2 img {
-  max-width: 100%; /* Ensure images do not overflow */
-  height: auto;
-}
-.file-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 10px;
-  text-align: center;
-  word-wrap: break-word;
-}
-.file-link a {
-  display: block;
-  width: 100%;
-  text-align: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  margin-top: 5px;
-  text-decoration: none;
-  font-size: 10px;
-  color: black;
-  word-break: break-all;
-}
-/*To add for the next commit*/
-.remove-button {
-  position: absolute;
-  top: -7px;
-  border: none;
-  background-color: transparent;
-  right: 2px;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-.ant-form-item-label > label {
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  color: #1890ff;
-  font-weight: 600;
-}
-
-.form-item {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.rounded-circle {
-  border-radius: 50%;
 }
 
 /* Media queries for responsiveness */
@@ -11595,13 +11393,133 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
   .topSection {
     margin-top: 0px;
   }
-  .form-item {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 16px;
-  }
+}
+.star {
+  font-size: 20px; 
+  color: grey;    
+}
 
-  .form-row {
-    flex-direction: column;
+.star.full {
+  color: gold;    
+}
+
+.star.half {
+  position: relative;
+  background: linear-gradient(90deg, gold 50%, grey 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.menu-09 {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease, display 2s ease;
+}
+
+.menu-09.open {
+  display: block;
+  opacity: 1;
+}
+.filte-div {
+  font-family: "Poppins", sans-serif;
+}
+.checkbox{
+ margin-left: 5px;
+ font-weight: 20px;
+ font-family: "Poppins", sans-serif;
+ font-weight: 500;
+ gap: 10px;
+ 
+}
+.titre{
+  color:#2e37a4;
+  margin-bottom: 20px;
+  font-weight: 100px;
+  font-size: large;
+  margin-top: 20px;
+
+}
+.sous-titre{
+  color:#2e37a4;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.apply{
+    margin-Top:100px;
+    margin-Left:50px;
+    width:200px;
+    background: rgba(46, 55, 164, 0.05);
+    border-radius: 12px;
+    border: 0;
+    height: 40px;
+    color: #2e37a4; /* Set initial text color */
+    transition: all ease-in-out 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.custom-checkbox-label input {
+  margin-right: 3px; /* Adjust space between checkbox and label */
+  margin-left: 4px;
+  margin-bottom:15px;
+}
+.cards{
+  width:12.5rem;
+  border-radius: 10px;
+  font-family: "Poppins";
+  height: 65px;
+  margin-right: 40px;
+}
+.carte-img{
+    height: 40px;
+    width: 40px;
+    margin-left: 20px;
+    margin-top: 7px;
+
+   
   }
+.card-titre{
+  padding-top: 22px;
+  font-size: 17px;
+  font-weight: 100;
+  padding-left: 10px;
+  color: #5F5F5F;
+}
+.cards-container{
+  flex : 1 1 ;
+}
+.custom-card {
+  width: 500px;
+  margin: 10px;
+}
+
+.card-bodyy {
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins";
+}
+
+.card-title {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.appointment {
+  margin-bottom: 10px;
+}
+
+.appointment-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.appointment-details span {
+  flex: 1;
 }

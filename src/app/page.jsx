@@ -100,62 +100,9 @@ const Home = () => {
                   <p>Bienvenue sur votre tableau de bord</p>
                 </div>
               </div>
-              <div className="col-md-6 position-blk">
-                <div className="morning-img">
-                  <Image src={morning_img_02} width={190} height={190}  alt="" />
-                </div>
-              </div>
             </div>
           </div>
           )}
-          <div className="doctor-list-blk">
-              <div className="row">
-                <div className="col-xl-3 col-md-6">
-                  <div className="doctor-widget border-right-bg">
-                    <div className="doctor-box-icon flex-shrink-0">
-                      <img src={doctor_dashboard_02.src} alt="" />
-                    </div>
-                    <div className="doctor-content dash-count flex-grow-1">
-                      <h4>
-                        <span className="">125</span>
-                        <span className=""></span>
-                      </h4>
-                      <h5>Patients</h5>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="doctor-widget border-right-bg">
-                    <div className="doctor-box-icon flex-shrink-0">
-                      <img src={doctor_dashboard_01.src} alt="" />
-                    </div>
-                    <div className="doctor-content dash-count flex-grow-1">
-                      <h4>
-                        <span className="">3/Jour</span>
-                        <span className=""></span>
-                      </h4>
-                      <h5>Consultations</h5>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="doctor-widget">
-                    <div className="doctor-box-icon flex-shrink-0">
-                      <img src={doctor_dashboard_04.src} alt="" />
-                    </div>
-                    <div className="doctor-content dash-count flex-grow-1">
-                      <h4>
-                        <span className="counter-up">3/5</span>
-                        <span className="status-green" style={{cursor: 'default'}} data-bs-toggle="tooltip" data-bs-title="Si votre évaluation est faible, complétez toutes les informations de votre profil.">
-                        Remarque
-                        </span>
-                      </h4>
-                      <h5>Evaluation</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           {/* Section Discussion */}
          
