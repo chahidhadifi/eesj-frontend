@@ -311,7 +311,7 @@ const Header = () => {
           </li> */}
           <li className="nav-item dropdown has-arrow user-profile-list">
             <Link
-              href="/"
+              href="#"
               className="dropdown-toggle nav-link user-link"
               data-bs-toggle="dropdown"
             >
