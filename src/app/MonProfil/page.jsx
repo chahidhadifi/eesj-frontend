@@ -76,49 +76,47 @@ const page = () => {
                     </div>
                     <div style={{ display: 'flex',gap:'15px', justifyContent: 'flex-end', width: '100%' }}>
                     <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
-                        <button
-                            type="button"
-                            className="btn"
-                            style={{
-                            borderColor: 'grey',
+                    <a
+                        className="btn"
+                        href="https://linkedin.com"
+                        style={{
+                            borderColor: 'transparent',
                             color: 'black',
                             padding: '6px 12px',
                             fontSize: '14px',
                             backgroundColor: 'transparent',
                             display: 'flex',
-                            alignItems: 'center', // Align items vertically centered
-                            }}
-                            disabled
-                        >
-                            <div className="personal-icons" style={{ marginRight: '8px' }}>
+                            alignItems: 'center',
+                            textDecoration: 'none',
+                        }}
+                        target='_blank'
+                    >
+                        <div className="personal-icons" style={{ marginRight: '8px' }}>
                             <FontAwesomeIcon icon={faLinkedin} style={{ color: '#0077B5', fontSize: '24px' }} />
-                            </div>
-                            <div className="views-personal">
-                            <h4 style={{ margin: 0, color: 'black' }}>Profil LinkedIn</h4>
-                            </div>
-                        </button>
+                        </div>
+                       
+                    </a>
 
-                        <button
-                            type="button"
-                            className="btn"
-                            style={{
-                            borderColor: 'grey',
-                            color: 'grey',
-                            padding: '6px 12px',
-                            fontSize: '14px',
-                            backgroundColor: 'transparent',
-                            display: 'flex',
-                            alignItems: 'center', // Align items vertically centered
-                            }}
-                            disabled
-                        >
-                            <div className="personal-icons" style={{ marginRight: '8px' }}>
-                            <FontAwesomeIcon icon={faXTwitter} style={{ color: '#000000', fontSize: '24px' }} />
-                            </div>
-                            <div className="views-personal">
-                            <h4 style={{ margin: 0, color: 'black' }}>Profil X</h4>
-                            </div>
-                        </button>
+                        <a
+                          className="btn"
+                          href="https://linkedin.com"
+                          style={{
+                              borderColor: 'transparent',
+                              color: 'grey',
+                              padding: '6px 12px',
+                              fontSize: '14px',
+                              backgroundColor: 'transparent',
+                              display: 'flex',
+                              alignItems: 'center',
+                              textDecoration: 'none',
+                          }}
+                          target='_blank'
+                      >
+                          <div className="personal-icons" style={{ marginRight: '8px' }}>
+                              <FontAwesomeIcon icon={faXTwitter} style={{ color: '#000000', fontSize: '24px' }} />
+                          </div>
+                        
+                      </a>
                         </div>
 
                    
