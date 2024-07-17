@@ -128,26 +128,7 @@ const MonProfile = () => {
                                                                 </div>
                                                             </div>
                                                             <div className="col-12 col-sm-12">
-                                                                <div className="profile-check-blk form-group">
-                                                                    <div className="remember-me">
-                                                                        <label className="custom_check mr-2 mb-0 d-inline-flex remember-me"> Visibilité du profil pour tout le monde
-                                                                            <input type="checkbox" name="radio" defaultChecked />
-                                                                            <span className="checkmark" />
-                                                                        </label>
-                                                                    </div>
-                                                                    <div className="remember-me">
-                                                                        <label className="custom_check mr-2 mb-0 d-inline-flex remember-me"> Notifications de nouvelles tâches
-                                                                            <input type="checkbox" name="radio" defaultChecked />
-                                                                            <span className="checkmark" />
-                                                                        </label>
-                                                                    </div>
-                                                                    <div className="remember-me">
-                                                                        <label className="custom_check mr-2 mb-0 d-inline-flex remember-me"> Notifications de nouvelles demandes d'amis
-                                                                            <input type="checkbox" name="radio" />
-                                                                            <span className="checkmark" />
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
+                                                                
                                                             </div>
                                                             <div className="col-12">
                                                                 <div className="doctor-submit">
