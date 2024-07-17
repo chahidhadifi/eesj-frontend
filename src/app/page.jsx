@@ -1,22 +1,30 @@
 "use client";
-import "@assets/css/style.css";
+
 import { useEffect, useState } from "react";
+import axios from 'axios';
+
 import Link from "next/link";
 import Image from "next/image";
-import FeatherIcon from "feather-icons-react/build/FeatherIcon";
+import { useRouter } from "next/navigation";
+
+import "@assets/css/style.css";
 import Sidebar from "../components/Sidebar";
-// import CountUp from "react-countup";
+
+import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import { morning_img_02 ,doctor_dashboard_01,
   doctor_dashboard_02,
   doctor_dashboard_03,
-  doctor_dashboard_04  } from "@components/imagepath";
-import { useRouter } from "next/navigation";
+  doctor_dashboard_04,  
+  iconsocial02} from "@components/imagepath";
 
 import * as bootstrap from 'bootstrap';
+
+import { login02 } from "@components/imagepath";
 
 const Home = () => {
   const router = useRouter();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [news, setNews] = useState(null);
 
   // const handleCreateDiscussion = () => {
   //   router.push("/Formulaire");
@@ -33,10 +41,25 @@ const Home = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const getAllHealthNews = () => {
+    axios.get("https://newsdata.io/api/1/latest?country=ma&category=health&apikey=pub_48777307746a1c7481b2890da6fa8dd3e3f8a")
+    .then(res => {
+      setNews(res.data.results);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
+  const Hello = () => {
+    console.log("qsdfqsd");
+  }
+
   useEffect(() => {
     window.bootstrap = bootstrap;
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    getAllHealthNews();
   }, []) 
 
   return (
@@ -158,6 +181,30 @@ const Home = () => {
             </div>
 
           {/* Section Discussion */}
+          <h3 className="text-lg mb-4 mt-5" style={{fontWeight: 'bold'}}>Dernières nouvelles sur la santé</h3>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            {
+              news && news.map((item, i) => (
+                <div class="col" key={i}>
+                  <div class="card">
+                    <img src={item.image_url} class="card-img-top"/>
+                    <div class="card-body">
+                      <h5 class="card-title">{item.title}</h5>
+                      <h6 style={{marginTop: '-15px', marginBottom: '20px', fontSize: '10px'}}>{item.pubDate}</h6>
+                      <h6 style={{marginTop: '-10px'}}>
+                        <img src={item.source_icon} alt="" style={{marginRight: '3px', width: '20px'}} />
+                        <a href={item.source_url} style={{color: '#333448', textTransform: 'capitalize'}}>{item.source_id}</a>
+                      </h6>
+                      <p class="card-text" style={{fontSize: '11px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis'}}>{item.description}</p>
+                    </div>
+                    <div class="card-body" style={{marginTop: '-20px'}}>
+                      <a href={item.link} class="btn btn-primary">Consulter la page</a>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
          
           {/* Section Discussion */}
         </div>
