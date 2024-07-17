@@ -5956,6 +5956,11 @@ html.menu-opened body {
   font-weight: 500;
   padding: 8px 0px;
 }
+.grey-br {
+  border-top: 1px solid rgba(128, 128, 128, 0.23); /* Grey line with reduced opacity */
+  margin: 20px 0; /* Space above and below the line */
+}
+
 #checkBoxes .btn-grey {
   background: #55ddff30;
   color: #1b2559;
@@ -6718,11 +6723,11 @@ a.status-grey {
   justify-content: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
+  height : 170px;
 }
 .profile-user-img {
-  margin-right: 20px;
   position: relative;
-  top: -30px;
+  padding : 0 10px;
 }
 .profile-user-img img {
   border-radius: 50%;
@@ -6732,6 +6737,7 @@ a.status-grey {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 3px;
+  width: 150px;
 }
 .names-profiles h5 {
   font-size: 14px;
