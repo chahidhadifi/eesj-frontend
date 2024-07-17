@@ -6674,24 +6674,33 @@ a.status-grey {
   border-radius: 10px;
 }
 .profile-user-box {
+  padding: 40px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  gap:30px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
+  
 }
+.grey-br {
+  border-top: 1px solid rgba(128, 128, 128, 0.21); /* Grey line with reduced opacity */
+  margin: 30px 0; /* Space above and below the line */
+}
+
 .profile-user-img {
-  margin-right: 20px;
   position: relative;
-  top: -30px;
 }
 .profile-user-img img {
   border-radius: 50%;
   width: 141px;
+}
+.names-profiles{
+  width:250px;
 }
 .names-profiles h4 {
   font-size: 18px;
