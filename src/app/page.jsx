@@ -19,8 +19,6 @@ import { morning_img_02 ,doctor_dashboard_01,
 
 import * as bootstrap from 'bootstrap';
 
-import { login02 } from "@components/imagepath";
-
 const Home = () => {
   const router = useRouter();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -42,17 +40,14 @@ const Home = () => {
   }, []);
 
   const getAllHealthNews = () => {
-    axios.get("https://newsdata.io/api/1/latest?country=ma&category=health&apikey=pub_48777307746a1c7481b2890da6fa8dd3e3f8a")
+    //pub_48777307746a1c7481b2890da6fa8dd3e3f8a
+    axios.get("https://newsdata.io/api/1/latest?country=ma&category=health&apikey=API_KEY")
     .then(res => {
       setNews(res.data.results);
     })
     .catch(err => {
       console.log(err);
     })
-  }
-
-  const Hello = () => {
-    console.log("qsdfqsd");
   }
 
   useEffect(() => {
