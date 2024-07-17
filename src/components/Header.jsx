@@ -17,6 +17,9 @@ import {
 } from "./imagepath";
 import Image from "next/image";
 
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+
 const Header = () => {
   const messages = [
     {
@@ -326,12 +329,12 @@ const Header = () => {
               <Link href="/MonProfil" className="dropdown-item">
                 My Profile
               </Link>
-              <Link href="/Modifier-profil" className="dropdown-item">
+              <Link href="/ModifierProfil" className="dropdown-item">
                 Edit Profile
               </Link>
-              <Link href="/" className="dropdown-item">
+              {/* <Link href="/" className="dropdown-item">
                 Settings
-              </Link>
+              </Link> */}
               <Link href="/" className="dropdown-item">
                 Logout
               </Link>
