@@ -135,7 +135,16 @@ const MonProfile = () => {
                                                                         <TagsInput   value={tags} onChange={handleChange} /> 
                                                                     </div>
                                                                     </div>
-                                                              
+                                                                    <div className="col-12 col-sm-12">
+                                                                    <div className="form-group local-forms">
+                                                                        <label>Linkedin </label>
+                                                                        <input className="form-control" type="text" defaultValue="https://Linkedin.com" />
+                                                                    </div>
+                                                                    <div className="form-group local-forms">
+                                                                        <label>X (Ex Twitter) </label>
+                                                                        <input className="form-control" type="text" defaultValue="https://x.com/" />
+                                                                    </div>
+                                                                </div>
                                                           
                                                             </div>
                                                             <div className="col-12">
