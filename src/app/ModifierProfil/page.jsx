@@ -31,7 +31,7 @@ const MonProfile = () => {
     return (
         <>
             
-            <Sidebar activeClassName = 'doctor-setting' />
+            <Sidebar id='menu-item1' id1='menu-items1' activeClassName='doctorprofile'/>
             <>
                 <div className="page-wrapper">
                     <div className="content">
