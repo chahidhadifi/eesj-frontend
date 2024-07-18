@@ -56,32 +56,6 @@ const Sidebar = (props) => {
               <li className="submenu">
                 <Link
                   className={
-                    props?.activeClassName === "chat" ? "active" : ""
-                  }
-                  href="/MonProfil"
-                >
-                  <span className="menu-side">
-                    <Image src={doctor} alt="" />
-                  </span>{" "}
-                  <span> Mon Profil </span>
-                </Link>
-              </li>
-              <li className="submenu">
-                <Link
-                  className={
-                    props?.activeClassName === "chat" ? "active" : ""
-                  }
-                  href="/Modifier-profil"
-                >
-                  <span className="menu-side">
-                    <Image src={doctor} alt="" />
-                  </span>{" "}
-                  <span> Modifier profil </span>
-                </Link>
-              </li>
-              <li className="submenu">
-                <Link
-                  className={
                     props?.activeClassName === "doctors" ? "active" : ""
                   }
                   href="/MesPatients"
@@ -95,27 +69,14 @@ const Sidebar = (props) => {
               <li className="submenu">
                 <Link
                   className={
-                    props?.activeClassName === "doctors" ? "active" : ""
+                    props?.activeClassName === "chat" ? "active" : ""
                   }
-                  href="/Chat"
+                  href="/MonProfil"
                 >
                   <span className="menu-side">
-                    <Image src={menuicon08} alt="" />
+                    <Image src={doctor} alt="" />
                   </span>{" "}
-                  <span> Chat Bot</span>
-                </Link>
-              </li>
-              <li className="submenu">
-                <Link
-                  className={
-                    props?.activeClassName === "doctors" ? "active" : ""
-                  }
-                  href="/Télé"
-                >
-                  <span className="menu-side">
-                    <Image src={menuicon08} alt="" />
-                  </span>{" "}
-                  <span> Télé-Expértise </span>
+                  <span> Mon Profil </span>
                 </Link>
               </li>
               <li>
