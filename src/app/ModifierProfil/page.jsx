@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-tagsinput/react-tagsinput.css';
 import TagsInput from 'react-tagsinput';
 import * as bootstrap from 'bootstrap';
-import 'boxicons';
+import 'boxicons/css/boxicons.min.css';
 
 const MonProfile = () => {
     const [tags, setTags] = useState([]); // Initial values
