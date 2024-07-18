@@ -121,7 +121,7 @@ const MyPatients = () => {
       Date: "12-09-2024",
     }
   ];
-
+  let patients_number = datasource.length
   const filteredData = useMemo(() => {
     return datasource.filter((item) =>
       item.Name.toLowerCase().includes(searchText.toLowerCase())
@@ -267,6 +267,7 @@ return (
                                                             Filtrer
                                                         </Link>
                                                     </div>
+                                                     <p style={{marginLeft:'500px', fontSize:'500'}}>Total des Patients :{patients_number} Patients</p>
                                                 </div>
                                             </div>
                                         </div>

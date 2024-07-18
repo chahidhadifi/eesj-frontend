@@ -12,7 +12,7 @@ import FeatherIcon from 'feather-icons-react/build/FeatherIcon'
 import { Profileuser, cameraicon, doctor, medalicon, medalicon02, medalicon03, menuicon16 } from '@components/imagepath'
 
 import * as bootstrap from 'bootstrap';
-import 'boxicons';
+import 'boxicons/css/boxicons.min.css';
 
 const MonProfile = () => {
 
