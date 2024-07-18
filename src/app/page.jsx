@@ -40,7 +40,7 @@ const Home = () => {
 
   const getAllHealthNews = () => {
     //pub_48777307746a1c7481b2890da6fa8dd3e3f8a
-    axios.get("https://newsdata.io/api/1/latest?country=ma&category=health&apikey=API_KEY")
+    axios.get("https://newsdata.io/api/1/latest?country=ma&category=health&apikey=pub_48777307746a1c7481b2890da6fa8dd3e3f8a")
     .then(res => {
       setNews(res.data.results);
     })
@@ -97,9 +97,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="col-md-6 position-blk">
-                  <div className="morning-img">
-                    <Image src={morning_img_02} width={190} height={190} style={{marginLeft:'91px'}} alt="" />
-                  </div>
+                 
                 </div>
               </div>
             </div>)}
