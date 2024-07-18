@@ -267,7 +267,7 @@ return (
                                                             Filtrer
                                                         </Link>
                                                     </div>
-                                                     <p style={{marginLeft:'500px', fontSize:'500'}}>Total des Patients :{patients_number} Patients</p>
+                                                     <p style={{marginLeft:'500px', fontWeight:'550'}}>Nombre des patients :{patients_number} Patients</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -278,8 +278,7 @@ return (
                                     <Table
                                         pagination={{
                                             total: datasource.length,
-                                            showTotal: (total, range) =>
-                                                `Affichage de ${range[0]} à ${range[1]} sur ${total} entrées`,
+                                            
                                         }}
                                         columns={columns}
                                         dataSource={applySearch()}
