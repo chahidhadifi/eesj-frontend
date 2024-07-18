@@ -39,13 +39,7 @@ const page = () => {
             <div className="about-info">
               <h4>
                 Profil du Docteur{" "}
-                <span>
-                  <Link href="#">
-                    <i className="feather-more-vertical">
-                      <FeatherIcon icon="more-vertical" />
-                    </i>
-                  </Link>
-                </span>
+            
               </h4>
             </div>
             <div className="doctor-profile-head">
@@ -74,53 +68,56 @@ const page = () => {
                     <h4>Dr. Bruce Willis</h4>
                     <h5>Médecin Senior</h5>
                     </div>
-                    <div style={{ display: 'flex',gap:'15px', justifyContent: 'flex-end', width: '100%' }}>
-                    <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
-                    <a
-                        className="btn"
-                        href="https://linkedin.com"
-                        style={{
-                            borderColor: 'transparent',
-                            color: 'black',
-                            padding: '6px 12px',
-                            fontSize: '14px',
-                            backgroundColor: 'transparent',
-                            display: 'flex',
-                            alignItems: 'center',
-                            textDecoration: 'none',
-                        }}
-                        target='_blank'
-                    >
-                        <div className="personal-icons" style={{ marginRight: '8px' }}>
-                            <FontAwesomeIcon icon={faLinkedin} style={{ color: '#0077B5', fontSize: '24px' }} />
-                        </div>
-                       
-                    </a>
+                    <div style={{ display: 'flex', gap: '15px', justifyContent: 'flex-end', width: '100%' }}>
+    <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
+        <a
+            className="btn"
+            href="https://linkedin.com"
+            style={{
+                borderColor: 'transparent',
+                color: 'black',
+                fontSize: '14px',
+                backgroundColor: 'transparent',
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                width: '30px',
+                width:'auto',
+                padding:'0'
+            }}
+            target='_blank'
+        >
+            
+                <FontAwesomeIcon icon={faLinkedin} style={{ color: '#0077B5',width:'38px' }} />
+           
+        </a>
 
-                        <a
-                          className="btn"
-                          href="https://linkedin.com"
-                          style={{
-                              borderColor: 'transparent',
-                              color: 'grey',
-                              padding: '6px 12px',
-                              fontSize: '14px',
-                              backgroundColor: 'transparent',
-                              display: 'flex',
-                              alignItems: 'center',
-                              textDecoration: 'none',
-                          }}
-                          target='_blank'
-                      >
-                          <div className="personal-icons" style={{ marginRight: '8px' }}>
-                              <FontAwesomeIcon icon={faXTwitter} style={{ color: '#000000', fontSize: '24px' }} />
-                          </div>
-                        
-                      </a>
-                        </div>
+        <a
+            className="btn"
+            href="https://X.com"
+            style={{
+                borderColor: 'transparent',
+                color: 'grey',
+                fontSize: '14px',
+                backgroundColor: 'transparent',
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                width: '30px',
+                width:'auto',
+                padding:'0',
+                marginRight:'29px'
+            }}
+            target='_blank'
+        >
+         
+                <FontAwesomeIcon icon={faXTwitter} style={{ color: '#000000', fontSize: '24px',width:'38px'
+                 }} />
+           
+        </a>
+    </div>
+</div>
 
-                   
-                    </div>
                 </div>
                 </div>
 
@@ -148,37 +145,44 @@ const page = () => {
                             J'aime travailler avec tout le personnel de mon hôpital et les médecins seniors.
                             </p>
                         </div>
-                        <div className="about-me-list">
-                            <ul className="list-space ">
-                            <li>
-                                <h4>Sexe</h4>
-                                <span>Femme</span>
-                            </li>
-                            
-                            <li>
-                                <h4>Désignation</h4>
-                                <span>Médecin Senior</span>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                 
-                     <div className="grey-br" />
-  
+                       
+                         <div className="col-xl-3 col-md-6">
+                         <div className="detail-personal mb-4"> 
+                           <h2>Désignation</h2>
+                         <h3>Médecin Senior</h3>
+                         </div>
+                       
+                      
+                                <div className="detail-personal mb-4">
+                      
 
-                  <div className="col-xl-3 col-md-6">
-                    <div className="detail-personal">
+                                <h2>Sexe</h2>
+                                <h3>Femme</h3>
+                                </div>
+                                <div className="detail-personal mb-4">
+
+                      
+                      <h2>Nom complet</h2>
+                      <h3>Dr.Bruce Willis</h3>
+                    </div>
+                    <div className="detail-personal mb-4">
+                      
+
+
+
+
+                      
                       <h2>Nom complet</h2>
                       <h3>Dr.Bruce Willis</h3>
                     </div>
                   </div>
-                  <div className="col-xl-3 col-md-6">
+                  <div className="col-xl-3 col-md-6 mb-4">
                     <div className="detail-personal">
                       <h2>Mobile</h2>
                       <h3>264-625-2583</h3>
                     </div>
                   </div>
-                  <div className="col-xl-3 col-md-6">
+                  <div className="col-xl-3 col-md-6 mb-4">
                     <div className="detail-personal">
                       <h2>Email</h2>
                       <h3>bruce@email.com</h3>
@@ -190,16 +194,13 @@ const page = () => {
                       <h3>Los Angeles</h3>
                     </div>
                   </div>
+                    </div>
+                 
+                    
+                 
                 </div>
               </div>
-              <div className="hello-park">
-                <p>
-                  J'ai terminé ma graduation en médecine gynécologique à la célèbre et renommée institution d'Inde - SARDAR PATEL MEDICAL COLLEGE, BARODA en 2000-01, qui était affiliée à l'Université M.S. J'ai été major de promotion aux examens de l'université de 1996-01.
-                </p>
-                <p>
-                  J'ai travaillé comme professeur et chef du département ; Département de médecine communautaire à l'hôpital Sterline, Rajkot, Gujarat de 2003 à 2015.
-                </p>
-              </div>
+              
               <div className="hello-park mb-2">
                 <h5>Éducation</h5>
                 <div className="table-responsive">
@@ -209,7 +210,7 @@ const page = () => {
                         <th>Année</th>
                         <th>Diplôme</th>
                         <th>Institut</th>
-                        <th>Résultat</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -217,21 +218,13 @@ const page = () => {
                         <td>2002-2005</td>
                         <td>M.D. en Médecine</td>
                         <td>Université du Wyoming</td>
-                        <td>
-                          <button className="custom-badge status-green ">
-                            Distinction
-                          </button>
-                        </td>
+                      
                       </tr>
                       <tr>
                         <td>2005-2014</td>
                         <td>MBBS</td>
                         <td>Netherland Medical College</td>
-                        <td>
-                          <button className="custom-badge status-green ">
-                            Distinction
-                          </button>
-                        </td>
+                      
                       </tr>
                     </tbody>
                   </table>
@@ -246,7 +239,7 @@ const page = () => {
                         <th>Année</th>
                         <th>Poste</th>
                         <th>Hôpital</th>
-                        <th>Feedback</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -254,21 +247,13 @@ const page = () => {
                         <td>2002-2005</td>
                         <td>Médecin Senior</td>
                         <td>Clinique Médicale Midtown</td>
-                        <td>
-                          <button className="custom-badge status-orange ">
-                            Bien
-                          </button>
-                        </td>
+                     
                       </tr>
                       <tr>
                         <td>2005-2014</td>
                         <td>Professeur Associé</td>
                         <td>Netherland Medical College</td>
-                        <td>
-                          <button className="custom-badge status-green ">
-                            Excellence
-                          </button>
-                        </td>
+                      
                       </tr>
                     </tbody>
                   </table>
