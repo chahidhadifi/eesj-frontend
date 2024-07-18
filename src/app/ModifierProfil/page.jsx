@@ -10,12 +10,18 @@ import Sidebar from "@components/Sidebar";
 
 import FeatherIcon from 'feather-icons-react/build/FeatherIcon'
 import { Profileuser, cameraicon, doctor, medalicon, medalicon02, medalicon03, menuicon16 } from '@components/imagepath'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-tagsinput/react-tagsinput.css';
+import TagsInput from 'react-tagsinput';
 import * as bootstrap from 'bootstrap';
 import 'boxicons';
 
 const MonProfile = () => {
+    const [tags, setTags] = useState([]); // Initial values
 
+    const handleChange = (newTags) => {
+      setTags(newTags);
+    };
     useEffect(() => {
         window.bootstrap = bootstrap;
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -97,9 +103,13 @@ const MonProfile = () => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12 col-sm-12">
+                                                                   
+                                                                </div>
+                                                                
+                                                                <div className="col-12 col-sm-12">
                                                                     <div className="form-group local-forms">
-                                                                        <label>Nom d'utilisateur <span  data-bs-toggle="tooltip" data-bs-title="Le nom qu'une personne utilise pour s'identifier sur un système informatique, un site web, ou une application."><box-icon type='solid' name='help-circle' size='xs' color='#2e37a4'></box-icon></span> </label>
-                                                                        <input className="form-control" type="text" defaultValue="brucewillis@29" />
+                                                                        <label>Email </label>
+                                                                        <input className="form-control" type="email" defaultValue="brucewillis@info.com" />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12 col-sm-12">
@@ -110,16 +120,23 @@ const MonProfile = () => {
                                                                 </div>
                                                                 <div className="col-12 col-sm-12">
                                                                     <div className="form-group local-forms">
-                                                                        <label>Email </label>
-                                                                        <input className="form-control" type="email" defaultValue="brucewillis@info.com" />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-12 col-sm-12">
-                                                                    <div className="form-group local-forms">
                                                                         <label>Adresse <span className="login-danger">*</span></label>
                                                                         <textarea className="form-control" rows={3} cols={30} defaultValue={"101, Elanxa Apartments, 340 N Madison Avenue"} />
                                                                     </div>
                                                                 </div>
+                                                                <div className="container mt-4">
+  
+                                                                    <div className="form-group local-forms  ">
+                                                                        <label>
+                                                                        Ajouter Specialite <span className="login-danger ">*</span>
+                                                                        </label>
+                                                                        
+                                                                          
+                                                                        <TagsInput   value={tags} onChange={handleChange} /> 
+                                                                    </div>
+                                                                    </div>
+                                                              
+                                                          
                                                             </div>
                                                             <div className="col-12">
                                                                 <div className="form-heading">
