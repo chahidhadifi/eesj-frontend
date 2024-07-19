@@ -36,7 +36,7 @@ const Home = () => {
   const getAllHealthNews = () => {
     //pub_488678f840dc44dfcd2ec89a5c7a1c935d490
     axios
-      .get("https://newsdata.io/api/1/news?apikey=API_KEY&country=fr&language=fr&category=health")
+      .get("https://newsdata.io/api/1/news?apikey=pub_488678f840dc44dfcd2ec89a5c7a1c935d490&country=fr&language=fr&category=health")
       .then((res) => {
         setNews(res.data.results);
       })
@@ -183,7 +183,7 @@ const Home = () => {
           <p style={{ marginTop: "3rem" , fontWeight : "550"}}>Rendez-vous</p>
           <div style={{display:'flex'}}>
           <div>
-          <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Card className="custom-card" style={{ height: "400px" , display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="card-bodyy" >
               <h5 className="card-title">À venir</h5>
               {appointments.map((appointment, index) => (

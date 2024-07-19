@@ -122,7 +122,6 @@ const MyPatients = () => {
       Date: "12-09-2024",
     }
   ];
-  let patients_number = datasource.length
   const filteredData = useMemo(() => {
     return datasource.filter((item) =>
       item.Name.toLowerCase().includes(searchText.toLowerCase())
@@ -243,21 +242,22 @@ return (
                                             <div className="doctor-table-blk">
                                                 <h3 style={{ marginRight: "20px" }}>Mes Patients</h3>
                                                 <div className="doctor-search-blk">
-                                                    <div className="top-nav-search table-search-blk">
-                                                        <input
-                                                            type="text"
-                                                            className="form-control"
-                                                            placeholder="Rechercher ici"
-                                                            value={searchText}
-                                                            onChange={handleSearchInputChange}
-                                                        />
-                                                        <Link className="btn" href="#">
-                                                            <img
-                                                                src={searchnormal.src}
-                                                                alt="#"
-                                                                style={{ marginLeft: '165px' , marginTop:'19px'}}
-                                                            />
-                                                        </Link>
+                                                <div className="top-nav-search table-search-blk">
+                                                <form>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    placeholder="Search here"
+                                                    value={searchText}
+                                                    onChange={handleSearchInputChange}
+                                                />
+                                                <Link className="btn" href="#">
+                                                   <img
+                                                     src={searchnormal.src}
+                                                     alt="#"
+                                                    />
+                                                </Link>
+                                                 </form>                                                                                
                                                     </div>
                                                     <div className="add-group">
                                                         <Link
@@ -274,7 +274,6 @@ return (
                                                             Filtrer
                                                         </Link>
                                                     </div>
-                                                     <p style={{marginLeft:'500px', fontWeight:'550'}}>Nombre des patients :{patients_number} Patients</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -284,7 +283,11 @@ return (
                                 <div className="table-responsive doctor-list">
                                     <Table
                                         pagination={{
-                                            total: datasource.length,
+                                            patients_number: datasource.length,
+                                            showTotal: (patients_number, range) =>
+                                                <span style={{ fontWeight: 'bold', fontSize: '16px' , fontFamily:'Poppins'}}>
+                                            Nombre total des patients : {patients_number} patients
+                                            </span>
                                             
                                         }}
                                         columns={columns}
