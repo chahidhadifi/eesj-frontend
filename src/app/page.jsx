@@ -120,7 +120,7 @@ const Home = () => {
                 </div>
                 <div className="col-md-6 position-blk">
                   <div className="morning-img z-index-0">
-                    <Image src={morning_img_02} alt="" />
+                    {/* <Image src={morning_img_02} alt="" /> */}
                   </div>
                 </div>
               </div>

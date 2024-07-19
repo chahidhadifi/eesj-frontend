@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { dashboard, doctor, logout, menuicon10, menuicon08 } from "./imagepath";
 import Scrollbars from "react-custom-scrollbars-2";
+import 'boxicons';
 
 const Sidebar = (props) => {
   const [sidebar, setSidebar] = useState("");
@@ -100,7 +101,7 @@ const Sidebar = (props) => {
                   href="/Chat"
                 >
                   <span className="menu-side">
-                    <Image src={menuicon08} alt="" />
+                    <box-icon type='solid' name='bot' color='gray'></box-icon>
                   </span>{" "}
                   <span> Chat Bot</span>
                 </Link>
@@ -113,7 +114,7 @@ const Sidebar = (props) => {
                   href="/Télé"
                 >
                   <span className="menu-side">
-                    <Image src={menuicon08} alt="" />
+                    <box-icon name='tv' color='gray'></box-icon>
                   </span>{" "}
                   <span> Télé-Expértise </span>
                 </Link>
