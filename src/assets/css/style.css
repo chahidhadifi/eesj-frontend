@@ -11585,3 +11585,20 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
 .appointment-details span {
   flex: 1;
 }
+.star {
+  visibility:hidden;
+  font-size:30x;
+  cursor:pointer;
+  margin-bottom: 30px;
+}
+.star:before {
+ content: "\2606";
+ position: absolute;
+ visibility:visible;
+ color: gray;
+}
+.star:checked:before {
+ content: "\2605";
+ position: absolute;
+ color: yellow;
+}

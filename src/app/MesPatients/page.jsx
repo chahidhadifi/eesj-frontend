@@ -13,6 +13,7 @@ import {
   refreshicon,
   searchnormal,
 } from "../../components/imagepath";
+import { render } from "@fullcalendar/core/preact";
 
 const MyPatients = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
@@ -130,10 +131,16 @@ const MyPatients = () => {
 
   const columns = [
     {
-        title: <span style={{ marginLeft: '10px' }}>Nom</span>,
+        title : " ",
+        width : 40,
+        render : () => <input className="star" type="checkbox" />
+    },
+   
+    {
+        title: <span style={{ marginLeft : '30px' }}>Nom</span>,
         dataIndex: "Name",
         width: 200,
-        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '15px' }}>{text}</span>,
+        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '0px'  }}>{text}</span>,
         sorter: (a, b) => a.Name.localeCompare(b.Name)
     },
     {
