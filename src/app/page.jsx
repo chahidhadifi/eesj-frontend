@@ -180,40 +180,45 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <p style={{ marginTop: "3rem" , fontWeight : "550"}}>Rendez-vous</p>
-          <div style={{display:'flex'}}>
           <div>
-          <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div className="card-bodyy" >
-              <h5 className="card-title">À venir</h5>
-              {appointments.map((appointment, index) => (
-                <div key={index} className="appointment">
-                  <p className="appointment-details">
-                    <span><strong>Jour:</strong> {appointment.day}</span>
-                    <span><strong>Heure:</strong> {appointment.hour}</span>
-                    <span><strong>Nom du patient:</strong> {appointment.patient}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Card>
-          <Card className="custom-card"style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div className="card-bodyy">
-              <h5 className="card-title">Dernières consultations</h5>
-              {appointments.map((appointment, index) => (
-                <div key={index} className="appointment">
-                  <p className="appointment-details">
-                    <span><strong>Jour:</strong> {appointment.day}</span>
-                    <span><strong>Heure:</strong> {appointment.hour}</span>
-                    <span><strong>Nom du patient:</strong> {appointment.patient}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Card>
+            <div></div>
+            <div></div>
           </div>
-          <div style={{marginLeft:'20rem' }}>
-          <p style={{ marginTop: "-2rem" , fontWeight : "550"}}>Dernières nouvelles de santé</p>
+          <p style={{ marginTop: "3rem" , fontWeight : "550"}}></p>
+          <div className="row d-flex flex-column flex-xl-row">
+          <div className="col-sm-6">
+          <p style={{fontWeight: '550'}}>Rendez-vous</p>
+            <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="card-bodyy" >
+                <h5 className="card-title">À venir</h5>
+                {appointments.map((appointment, index) => (
+                  <div key={index} className="appointment">
+                    <p className="appointment-details">
+                      <span><strong>Jour:</strong> {appointment.day}</span>
+                      <span><strong>Heure:</strong> {appointment.hour}</span>
+                      <span><strong>Nom du patient:</strong> {appointment.patient}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Card>
+            <Card className="custom-card"style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="card-bodyy">
+                <h5 className="card-title">Dernières consultations</h5>
+                {appointments.map((appointment, index) => (
+                  <div key={index} className="appointment">
+                    <p className="appointment-details">
+                      <span><strong>Jour:</strong> {appointment.day}</span>
+                      <span><strong>Heure:</strong> {appointment.hour}</span>
+                      <span><strong>Nom du patient:</strong> {appointment.patient}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+          <div className="col-sm-6">
+          <p style={{ fontWeight : "550"}}>Dernières nouvelles de santé</p>
           {news.slice(0, 3).length > 0 ? (
             news.slice(0, 3).map((article, index) => (
               <Card key={index} className="custom-card ">
