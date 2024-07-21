@@ -10,6 +10,15 @@ import 'boxicons';
 
 const Sidebar = (props) => {
   const [sidebar, setSidebar] = useState("");
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
+  const toggleSubMenu = (e) => {
+    setSubMenuOpen((prev) => !prev);
+    const menuArrow = document.querySelector('#menu-item1');
+    
+      if(subMenuOpen) {menuArrow.classList.remove('subdrop') } else{ menuArrow.classList.add('subdrop');}
+      console.log(subMenuOpen)
+    
+  };
 
   const expandMenu = () => {
     document.body.classList.remove("expand-menu");
@@ -55,30 +64,38 @@ const Sidebar = (props) => {
                 </Link>
               </li>
               <li className="submenu">
-                <Link
+                <Link 
+                  
+            onClick={(e)=>toggleSubMenu(e)}
+                  href="#"
+                   id="menu-item1"
+                >
+
+                  <span className="menu-side">
+                    <Image src={doctor} alt="" />
+                  </span>{" "}
+                  <span> Médecin  </span>  <span  className="menu-arrow" />
+                </Link>
+      
+                  <ul style={{ display: subMenuOpen ? 'block' : 'none' }} className="menu-items1 ">
+                  <li>
+                  <Link
                   className={
                     props?.activeClassName === "chat" ? "active" : ""
                   }
                   href="/MonProfil"
-                >
-                  <span className="menu-side">
-                    <Image src={doctor} alt="" />
-                  </span>{" "}
-                  <span> Mon Profil </span>
-                </Link>
-              </li>
-              <li className="submenu">
-                <Link
+                >Profile du Médecin</Link>
+                  </li>
+                  <li>
+                  <Link
                   className={
                     props?.activeClassName === "chat" ? "active" : ""
                   }
                   href="/ModifierProfil"
-                >
-                  <span className="menu-side">
-                    <Image src={doctor} alt="" />
-                  </span>{" "}
-                  <span> Modifier profil </span>
-                </Link>
+                >Modifier Mon Profile</Link>
+                  </li>
+                </ul>
+                
               </li>
               <li className="submenu">
                 <Link
