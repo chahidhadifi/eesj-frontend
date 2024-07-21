@@ -164,11 +164,12 @@ const MonProfile = () => {
                                                                 <div className="col-12 col-md-6 col-xl-6">
                                                                     <div className="form-group select-gender" required  >
                                                                         <label className="gen-label" >
-                                                                        Sexe<span className="login-danger">*</span>
+                                                                        Sexe
                                                                         </label>
                                                                         <div className="form-check-inline">
                                                                         <label className="form-check-label">
                                                                             <input
+                                                                            defaultChecked={true}
                                                                             type="radio"
                                                                             name="gender"
                                                                             className="form-check-input"
@@ -180,6 +181,7 @@ const MonProfile = () => {
                                                                         <div className="form-check-inline">
                                                                         <label className="form-check-label">
                                                                             <input
+                                                                            
                                                                             type="radio"
                                                                             name="gender"
                                                                             className="form-check-input"
