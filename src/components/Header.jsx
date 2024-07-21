@@ -6,8 +6,6 @@ import Link from "next/link";
 import { useEffect } from "react";
 import {
   logo,
-  baricon,
-  baricon1,
   searchnormal,
   imguser,
   noteicon,
@@ -181,18 +179,6 @@ const Header = () => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
 
-  const handlesidebar = () => {
-    document.body.classList.toggle("mini-sidebar");
-  };
-
-  const handlesidebarmobilemenu = () => {
-    document.body.classList.toggle("slide-nav");
-    document.getElementsByTagName("html")[0].classList.toggle("menu-opened");
-    /*document
-      .getElementsByClassName("sidebar-overlay")[0]
-      .classList.toggle("opened");*/
-  };
-
   const openDrawer = () => {
     const div = document.querySelector(".main-wrapper");
     if (div?.className?.includes("open-msg-box")) {
@@ -221,7 +207,7 @@ const Header = () => {
     };
   }, []);
   return (
-    <div className="main-wrapper">
+    <div >
       <div className="header">
         <div className="header-left">
           <Link href="/" className="logo">
@@ -229,18 +215,7 @@ const Header = () => {
             <span>EMPS</span>
           </Link>
         </div>
-        <Link href="#" id="toggle_btn" onClick={handlesidebar}>
-          <Image src={baricon} alt="" />
-        </Link>
-        <Link
-          href="#"
-          id="mobile_btn"
-          className="mobile_btn float-start"
-          onClick={handlesidebarmobilemenu}
-        >
-          <Image src={baricon1} alt="" />
-        </Link>
-
+        
         <ul className="nav user-menu float-end">
           <li className="nav-item dropdown d-none d-sm-block">
             <Link
