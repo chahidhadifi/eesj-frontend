@@ -266,13 +266,6 @@ return (
                                                         >
                                                             <img src={refreshicon.src} alt="#" />
                                                         </Link>
-                                                        <Link
-                                                            href="#"
-                                                            className="filterr"
-                                                            onClick={openDrawer}
-                                                        >
-                                                            Filtrer
-                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,47 +297,6 @@ return (
                 </div>
             </div>
         </div>
-        <Drawer
-        title="Filtrer les Patients"
-        placement="right"
-        onClose={closeDrawer}
-        visible={drawerVisible}
-      >
-        <div className="filte-div" >
-        <p className="titre">Filtrer les patients </p>
-        <div className="checkbox">
-        
-        <h5 className="sous-titre">Sexe :</h5>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Masculin
-        </label>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Féminin
-        </label>
-        <h5 className="sous-titre">Maladie :</h5>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Rhume
-        </label>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Grippe
-        </label>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Anémie
-        </label>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Cancer
-        </label>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Asthme
-        </label>
-        <label className="custom-checkbox-label">
-             <input type="checkbox" /> Hypertension
-        </label>
-        </div>
-        <button className="apply">Appliquer</button>
-        </div>
-        {/* Add your filter form or options here */}
-      </Drawer>
     </>
 );
 };
