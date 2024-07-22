@@ -7,8 +7,9 @@ import Sidebar from "@components/Sidebar";
 import { Table, Drawer } from 'antd';
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import "@assets/css/font-awesome.min.css";
-import patients from "@assets/data/Patients";
+// import patients from "@assets/data/Patients";
 import moment from 'moment';
+import axios from 'axios';
 
 import {
   refreshicon,
@@ -21,113 +22,22 @@ const MyPatients = () => {
   const [searchText, setSearchText] = useState("");
   const ageRanges = Array.from({ length: 16 }, (_, index) => index + 10);
 
-  const data = patients;
+//   const data = patients;
+  const [data, setData] = useState(null);
 
+  const getAllJeunes = () => {
+    axios.get('http://localhost:8080/jeune/with-user-info')
+    .then(res => {
+        console.log(res.data);
+        setData(res.data);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+  }
 
-  const datasource = [
-    {
-      id: 1,
-      Name: "Aya Aya",
-      Gender: "Féminin",
-      Age: 13,
-      Disease: "Grippe",
-      Mobile: "+212 6 12345678",
-      dossier: "Dossier Médical",
-      Date: "23-06-2023",
-    },
-    {
-      id: 2,
-      Name: "Omar Omar",
-      Gender: "Masculin",
-      Age: 21,
-      Disease: "Rhume",
-      Mobile: "+212 6 23456789",
-      dossier: "Dossier Médical",
-      Date: "24-06-2023",
-    },
-    {
-      id: 3,
-      Name: "Sara Sara",
-      Gender: "Féminin",
-      Age: 17,
-      Disease: "Diabète",
-      Mobile: "+212 6 34567890",
-      dossier: "Dossier Médical",
-      Date: "23-06-2024",
-    },
-    {
-      id: 4,
-      Name: "Ahmed Ahmed",
-      Gender: "Masculin",
-      Age: 25,
-      Disease: "Hypertension",
-      Mobile: "+212 6 45678901",
-      dossier: "Dossier Médical",
-      Date: "03-07-2023",
-    },
-    {
-      id: 5,
-      Name: "Fatima Fatima",
-      Gender: "Féminin",
-      Age: 20,
-      Disease: "Asthme",
-      Mobile: "+212 6 56789012",
-      dossier: "Dossier Médical",
-      Date: "27-06-2023",
-    },
-    {
-      id: 6,
-      Name: "Mohamed Mohamed",
-      Gender: "Masculin",
-      Age: 22,
-      Disease: "Anémie",
-      Mobile: "+212 6 67890123",
-      dossier: "Dossier Médical",
-      Date: "01-03-2023",
-    },
-    {
-      id: 7,
-      Name: "Imane Imane",
-      Gender: "Féminin",
-      Age: 19,
-      Disease: "Allergie",
-      Mobile: "+212 6 78901234",
-      dossier: "Dossier Médical",
-      Date: "22-11-2023",
-    },
-    {
-      id: 8,
-      Name: "Youssef Youssef",
-      Gender: "Masculin",
-      Age: 23,
-      Disease: "Migraine",
-      Mobile: "+212 6 89012345",
-      dossier: "Dossier Médical",
-      Date: "23-06-2023",
-    },
-    {
-      id: 9,
-      Name: "Khadija Khadija",
-      Gender: "Féminin",
-      Age: 14,
-      Disease: "Otite",
-      Mobile: "+212 6 90123456",
-      dossier: "Dossier Médical",
-      Date: "24-12-2023",
-    },
-    {
-      id: 10,
-      Name: "Rachid Rachid",
-      Gender: "Masculin",
-      Age: 18,
-      Disease: "Bronchite",
-      Mobile: "+212 6 01234567",
-      dossier: "Dossier Médical",
-      Date: "12-09-2024",
-    }
-  ];
   const filteredData = useMemo(() => {
-    return data.filter((item) =>
+    return data && data.filter((item) =>
       item[1].toLowerCase().includes(searchText.toLowerCase())
     );
   }, [searchText, data]);
@@ -146,7 +56,7 @@ const MyPatients = () => {
     //     render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '0px' }}>{text}</span>,
     // },
     {
-        title: <span style={{ marginLeft: '20px' }}>Nom et Prénom</span>,
+        title: <span style={{ textAlign: 'center' }}>Nom et Prénom</span>,
         dataIndex: 0, // This is just a placeholder; we use custom rendering below
         width: 300,
         render: (text, record) => (
@@ -173,7 +83,7 @@ const MyPatients = () => {
         title: <span style={{ marginLeft: '20px' }}>Maladie</span>,
         dataIndex: 5,
         width: 250,
-        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text}</span>,
+        render: (text) => <span style={{ textAlign: 'center' }}>{text}</span>,
     },
     // {
     //     title: <span style={{ marginLeft: '20px' }}>Email</span>,
@@ -191,7 +101,7 @@ const MyPatients = () => {
     {
         title: <span style={{ marginLeft: '20px' }}>Dossier médical</span>,
         width: 250,
-        render: (item) => <a href={'/MesPatients/' + item[0]} style={{marginLeft: '20px'}}>Dossier médical</a>,
+        render: (item) => <a href={'/MesPatients/DossierMedical/' + item[0]} style={{marginLeft: '20px'}}>Dossier médical</a>,
     },
     
     // {
@@ -303,7 +213,7 @@ const closeDrawer = () => {
 };
 
 const applySearch = () => {
-    const filteredData = data.filter(patient => {
+    const filteredData = data && data.filter(patient => {
         // Check if the patient's Name, Gender, or Disease includes the searchText
         return (
             patient[1].toLowerCase().includes(searchText.toLowerCase()) ||
@@ -318,6 +228,10 @@ const applySearch = () => {
 const handleSearchInputChange = (e) => {
     setSearchText(e.target.value);
 };
+
+useEffect(() => {
+    getAllJeunes();
+}, [])
 
 return (
     <>
@@ -382,7 +296,7 @@ return (
                                 <div className="table-responsive doctor-list">
                                     <Table
                                         pagination={{
-                                            patients_number: data.length,
+                                            patients_number: data && data.length,
                                             showTotal: (patients_number, range) =>
                                                 <span style={{ fontWeight: 'bold', fontSize: '16px' , fontFamily:'Poppins'}}>
                                             Nombre total des patients : {patients_number} patients
