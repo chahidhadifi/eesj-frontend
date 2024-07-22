@@ -107,7 +107,7 @@ const Home = () => {
                     <div style={{ display: "inline-block", marginTop: "-4px" }}>
                       <div className="container-exclamation align-up" style={{ marginLeft: "10px", display: "flex" }}>
                         <span
-                          className="status-greeny"
+                          className="status-orange"
                           style={{ cursor: "default" }}
                           data-bs-toggle="tooltip"
                           data-bs-title="Si votre évaluation est faible, complétez toutes les informations de votre profil."

@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import Link from "next/link";
 import { useEffect } from "react";
 import {
-  logo,
+   newlogo,
   searchnormal,
   imguser,
   noteicon,
@@ -211,8 +211,7 @@ const Header = () => {
       <div className="header">
         <div className="header-left">
           <Link href="/" className="logo">
-            <Image src={logo} width={35} height={35} alt="" />{" "}
-            <span>EMPS</span>
+            <Image src={newlogo} width={500} height={30} alt="" />{" "}
           </Link>
         </div>
         

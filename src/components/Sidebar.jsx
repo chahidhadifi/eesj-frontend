@@ -146,6 +146,19 @@ const Sidebar = (props) => {
               <li className="submenu">
                 <Link
                   className={
+                    props?.activeClassName === "chat" ? "active" : ""
+                  }
+                  href="/MonProfil"
+                >
+                  <span className="menu-side">
+                    <Image src={doctor} alt="" />
+                  </span>{" "}
+                  <span> IES </span>
+                </Link>
+              </li>
+              <li className="submenu">
+                <Link
+                  className={
                     props?.activeClassName === "doctors" ? "active" : ""
                   }
                   href="/Télé"

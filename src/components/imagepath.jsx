@@ -9,6 +9,8 @@ export { default as logo } from "../assets/img/logo.png";
 export {default as gp} from "../assets/img/icons/patient.png"
 export {default as tv} from "../assets/img/icons/television.png"
 export {default as cb} from "../assets/img/icons/chatbot.png"
+export {default as newlogo} from "../assets/img/newlogo.png"
+
 
 export { default as baricon } from "../assets/img/icons/bar-icon.svg";
 export { default as baricon1 } from "../assets/img/icons/bar-icon.svg";

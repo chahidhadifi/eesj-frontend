@@ -33,6 +33,7 @@
     "react": "^18",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "^18",
+    "react-icons": "^5.2.1",
     "react-select": "^5.8.0",
     "react-tagsinput": "^3.20.3",
     "typeahead.js": "^0.11.1"

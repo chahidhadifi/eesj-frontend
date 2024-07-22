@@ -2647,8 +2647,9 @@ table.dataTable thead .sorting_desc_disabled:after {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #00d3c7;
+  background: rgba(240,148,31,255); /* Updated color */
 }
+
 .pulse:before {
   content: "";
   top: 0px;
@@ -2657,12 +2658,13 @@ table.dataTable thead .sorting_desc_disabled:after {
   height: 10px;
   position: absolute;
   border-radius: 50%;
-  background: rgb(0 211 199 / 50%);
+  background: rgba(240,148,31,50%); /* Updated background color */
   cursor: pointer;
-  box-shadow: 0 0 0 rgb(0 211 199);
+  box-shadow: 0 0 0 rgba(240,148,31,255); /* Updated box-shadow color */
   animation: pulse 1s linear infinite;
   z-index: 1;
 }
+
 @keyframes pulse {
   100% {
     transform: scale(2.5);
@@ -6537,7 +6539,7 @@ a.status-red {
 }
 .status-green,
 a.status-green {
-  background: rgba(0, 211, 199, 0.1);
+  background: rgba(240, 148, 31, 0.1);
   color: #43A047;
 }
 .status-greeny{
@@ -6549,7 +6551,7 @@ a.status-green {
 .container-exclamation{
   height:15px;
   width:15px;
-  background-color: rgba(0, 211, 199, 0.1);
+  background-color: rgba(240, 148, 31, 0.5);
   justify-content: center;
   border-radius: 50%;
 
@@ -6557,8 +6559,10 @@ a.status-green {
 
 .status-orange,
 a.status-orange {
-  background-color: #fef5e4;
-  color: #ff9b01;
+  color: #f0941f;
+  font-size: 10px;
+  margin-bottom:10px;
+
 }
 .status-blue,
 a.status-blue {
@@ -11165,9 +11169,9 @@ th.ant-table-cell {
 
 /* Remove icon  */
 
-.ant-table-thead :hover {
+/* .ant-table-thead :hover {
   white-space: nowrap;
-}
+} */
 .ant-table-tbody {
   white-space: nowrap;
   font-weight: 500;
