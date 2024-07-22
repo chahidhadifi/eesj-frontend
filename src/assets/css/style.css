@@ -762,9 +762,11 @@ textarea.form-control {
 .logo {
   align-items: center;
   display: flex;
-  height: 70px;
   justify-content: flex-start;
+  margin-top: 10px;
   text-decoration: none;
+  width:200px;
+  height:30px;
 }
 .logo span {
   color: #2e37a4;

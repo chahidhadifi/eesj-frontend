@@ -4,7 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@assets/css/font-awesome.min.css";
 import Link from "next/link";
 import Image from "next/image";
-import { dashboard, doctor, logout, menuicon10, menuicon08, baricon, baricon1 } from "./imagepath";
+import { dashboard, doctor, logout, menuicon10, menuicon08 } from "./imagepath";
 import Scrollbars from "react-custom-scrollbars-2";
 import 'boxicons';
 
@@ -14,30 +14,12 @@ const Sidebar = (props) => {
   const toggleSubMenu = (e) => {
     setSubMenuOpen((prev) => !prev);
     const menuArrow = document.querySelector('#menu-item1');
-
+    
       if(subMenuOpen) {menuArrow.classList.remove('subdrop') } else{ menuArrow.classList.add('subdrop');}
       console.log(subMenuOpen)
-
-  };
-  const handlesidebar = () => {
-    document.body.classList.toggle("mini-sidebar");
+    
   };
 
-  const handlesidebarmobilemenu = () => {
-    document.body.classList.toggle("slide-nav");
-    document.getElementsByTagName("html")[0].classList.toggle("menu-opened");
-    /*document
-      .getElementsByClassName("sidebar-overlay")[0]
-      .classList.toggle("opened");*/
-  };
-  const handleClick = (e, item, itemClass) => {
-    const div = document.querySelector(`#${item}`);
-    const ulDiv = document.querySelector(`.${itemClass}`);
-    ulDiv.style.display = ulDiv.style.display === 'block' ? 'none' : 'block';
-    div.classList.toggle('subdrop');
-  };
-
-  
   const expandMenu = () => {
     document.body.classList.remove("expand-menu");
   };
@@ -67,17 +49,6 @@ const Sidebar = (props) => {
             onMouseOver={expandMenuOpen}
           >
             <ul>
-            <Link href="#" id="toggle_btn" onClick={handlesidebar}>
-                <Image src={baricon} alt="" />
-              </Link>
-              <Link
-                href="#"
-                id="mobile_btn"
-                className="mobile_btn float-start"
-                onClick={handlesidebarmobilemenu}
-              >
-                <Image src={baricon1} alt="" />
-              </Link>
               <li className="menu-title">Menu</li>
               <li className="submenu">
                 <Link
@@ -93,30 +64,38 @@ const Sidebar = (props) => {
                 </Link>
               </li>
               <li className="submenu">
-                <Link
+                <Link 
+                  
+            onClick={(e)=>toggleSubMenu(e)}
+                  href="#"
+                   id="menu-item1"
+                >
+
+                  <span className="menu-side">
+                    <Image src={doctor} alt="" />
+                  </span>{" "}
+                  <span> Médecin  </span>  <span  className="menu-arrow" />
+                </Link>
+      
+                  <ul style={{ display: subMenuOpen ? 'block' : 'none' }} className="menu-items1 ">
+                  <li>
+                  <Link
                   className={
                     props?.activeClassName === "chat" ? "active" : ""
                   }
                   href="/MonProfil"
-                >
-                  <span className="menu-side">
-                    <Image src={doctor} alt="" />
-                  </span>{" "}
-                  <span> Mon Profil </span>
-                </Link>
-              </li>
-              <li className="submenu">
-                <Link
+                >Profile du Médecin</Link>
+                  </li>
+                  <li>
+                  <Link
                   className={
                     props?.activeClassName === "chat" ? "active" : ""
                   }
                   href="/ModifierProfil"
-                >
-                  <span className="menu-side">
-                    <Image src={doctor} alt="" />
-                  </span>{" "}
-                  <span> Modifier profil </span>
-                </Link>
+                >Modifier Mon Profile</Link>
+                  </li>
+                </ul>
+                
               </li>
               <li className="submenu">
                 <Link
@@ -141,20 +120,20 @@ const Sidebar = (props) => {
                   <span className="menu-side">
                     <box-icon type='solid' name='bot' color='gray'></box-icon>
                   </span>{" "}
-                  <span> Chat Bot</span>
+                  <span> IES</span>
                 </Link>
               </li>
               <li className="submenu">
                 <Link
                   className={
-                    props?.activeClassName === "chat" ? "active" : ""
+                    props?.activeClassName === "doctors" ? "active" : ""
                   }
-                  href="/MonProfil"
+                  href="/Chat"
                 >
                   <span className="menu-side">
-                    <Image src={doctor} alt="" />
+                    <box-icon type='solid' name='bot' color='gray'></box-icon>
                   </span>{" "}
-                  <span> IES </span>
+                  <span> Chat Bot</span>
                 </Link>
               </li>
               <li className="submenu">

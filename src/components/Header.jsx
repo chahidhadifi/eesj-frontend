@@ -5,13 +5,17 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import Link from "next/link";
 import { useEffect } from "react";
 import {
-   newlogo,
+  logo,
   searchnormal,
   imguser,
   noteicon,
   user06,
   settingicon01,
   noteicon1,
+  newlogo,
+  baricon,
+  baricon1
+
 } from "./imagepath";
 import Image from "next/image";
 
@@ -206,6 +210,18 @@ const Header = () => {
       // maximizeBtn.removeEventListener('click', handleClick);
     };
   }, []);
+  const handlesidebar = () => {
+    document.body.classList.toggle("mini-sidebar");
+  };
+
+  const handlesidebarmobilemenu = () => {
+    document.body.classList.toggle("slide-nav");
+    document.getElementsByTagName("html")[0].classList.toggle("menu-opened");
+    /*document
+      .getElementsByClassName("sidebar-overlay")[0]
+      .classList.toggle("opened");*/
+  };
+
   return (
     <div >
       <div className="header">
@@ -214,6 +230,17 @@ const Header = () => {
             <Image src={newlogo} width={500} height={30} alt="" />{" "}
           </Link>
         </div>
+        <Link href="#" id="toggle_btn" onClick={handlesidebar}>
+          <Image src={baricon} alt=""  style={{marginLeft:"150px"}}/>
+        </Link>
+        <Link
+          href="#"
+          id="mobile_btn"
+          className="mobile_btn float-start"
+          onClick={handlesidebarmobilemenu}
+        >
+          <Image src={baricon1} alt=""  />
+        </Link>
         
         <ul className="nav user-menu float-end">
           <li className="nav-item dropdown d-none d-sm-block">

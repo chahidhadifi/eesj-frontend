@@ -130,7 +130,7 @@ const Home = () => {
           <p style={{ fontWeight: "550" }}>Accès Rapide</p>
           <div className="doctor-list-blk" style={{ width: "100%" }}>
             <div className="row">
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={bu.src} alt="" />
@@ -142,7 +142,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={gp.src} alt="" />
@@ -154,7 +154,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={cb.src} alt="" />
@@ -166,7 +166,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={tv.src} alt="" />
@@ -178,7 +178,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                 <div className="doctor-widget">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={tv.src} alt="" />
@@ -192,8 +192,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-
           <div>
             <div></div>
             <div></div>
