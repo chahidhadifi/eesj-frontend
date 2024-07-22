@@ -127,10 +127,10 @@ const Home = () => {
             </div>
             {/* Bonjour Section */}
           </div>
-          <p style={{fontWeight : "550"}}>Accès Rapide</p>
+          <p style={{ fontWeight: "550" }}>Accès Rapide</p>
           <div className="doctor-list-blk" style={{ width: "100%" }}>
             <div className="row">
-              <div className="col-xl-3 col-md-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={bu.src} alt="" />
@@ -142,7 +142,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3 col-md-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={gp.src} alt="" />
@@ -154,7 +154,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3 col-md-6">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={cb.src} alt="" />
@@ -166,8 +166,8 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3 col-md-6">
-                <div className="doctor-widget">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div className="doctor-widget border-right-bg">
                   <div className="doctor-box-icon flex-shrink-0">
                     <img src={tv.src} alt="" />
                   </div>
@@ -178,63 +178,77 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div className="doctor-widget">
+                  <div className="doctor-box-icon flex-shrink-0">
+                    <img src={tv.src} alt="" />
+                  </div>
+                  <div className="doctor-content dash-count flex-grow-1">
+                    <Link href="/IES">
+                      <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>IES</h4>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+
           <div>
             <div></div>
             <div></div>
           </div>
-          <p style={{ marginTop: "3rem" , fontWeight : "550"}}></p>
+          <p style={{ marginTop: "3rem", fontWeight: "550" }}></p>
           <div className="row d-flex flex-column flex-xl-row">
-          <div className="col-sm-6">
-          <p style={{fontWeight: '550'}}>Rendez-vous</p>
-            <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <div className="card-bodyy" >
-                <h5 className="card-title">À venir</h5>
-                {appointments.map((appointment, index) => (
-                  <div key={index} className="appointment">
-                    <p className="appointment-details">
-                      <span><strong>Jour:</strong> {appointment.day}</span>
-                      <span><strong>Heure:</strong> {appointment.hour}</span>
-                      <span><strong>Nom du patient:</strong> {appointment.patient}</span>
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Card>
-            <Card className="custom-card"style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <div className="card-bodyy">
-                <h5 className="card-title">Dernières consultations</h5>
-                {appointments.map((appointment, index) => (
-                  <div key={index} className="appointment">
-                    <p className="appointment-details">
-                      <span><strong>Jour:</strong> {appointment.day}</span>
-                      <span><strong>Heure:</strong> {appointment.hour}</span>
-                      <span><strong>Nom du patient:</strong> {appointment.patient}</span>
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </div>
-          <div className="col-sm-6">
-          <p style={{ fontWeight : "550"}}>Dernières nouvelles de santé</p>
-          {news.slice(0, 3).length > 0 ? (
-            news.slice(0, 3).map((article, index) => (
-              <Card key={index} className="custom-card ">
-                <div className="card-bodyy">
-                  <h5 className="card-title">{article.title}</h5>
-                  <p className="card-text">{article.description}</p>
-                  <a href={article.link} target="_blank" rel="noopener noreferrer">
-                    Lire la suite
-                  </a>
+            <div className="col-sm-6">
+              <p style={{ fontWeight: '550' }}>Rendez-vous</p>
+              <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="card-bodyy" >
+                  <h5 className="card-title">À venir</h5>
+                  {appointments.map((appointment, index) => (
+                    <div key={index} className="appointment">
+                      <p className="appointment-details">
+                        <span><strong>Jour:</strong> {appointment.day}</span>
+                        <span><strong>Heure:</strong> {appointment.hour}</span>
+                        <span><strong>Nom du patient:</strong> {appointment.patient}</span>
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </Card>
-            ))
-          ) : (
-            <p>Aucune nouvelle trouvée.</p>
-          )}
-          </div>
+              <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="card-bodyy">
+                  <h5 className="card-title">Dernières consultations</h5>
+                  {appointments.map((appointment, index) => (
+                    <div key={index} className="appointment">
+                      <p className="appointment-details">
+                        <span><strong>Jour:</strong> {appointment.day}</span>
+                        <span><strong>Heure:</strong> {appointment.hour}</span>
+                        <span><strong>Nom du patient:</strong> {appointment.patient}</span>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+            <div className="col-sm-6">
+              <p style={{ fontWeight: "550" }}>Dernières nouvelles de santé</p>
+              {news.slice(0, 3).length > 0 ? (
+                news.slice(0, 3).map((article, index) => (
+                  <Card key={index} className="custom-card ">
+                    <div className="card-bodyy">
+                      <h5 className="card-title">{article.title}</h5>
+                      <p className="card-text">{article.description}</p>
+                      <a href={article.link} target="_blank" rel="noopener noreferrer">
+                        Lire la suite
+                      </a>
+                    </div>
+                  </Card>
+                ))
+              ) : (
+                <p>Aucune nouvelle trouvée.</p>
+              )}
+            </div>
           </div>
         </div>
       </div>

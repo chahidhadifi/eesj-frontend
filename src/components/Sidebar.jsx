@@ -14,10 +14,10 @@ const Sidebar = (props) => {
   const toggleSubMenu = (e) => {
     setSubMenuOpen((prev) => !prev);
     const menuArrow = document.querySelector('#menu-item1');
-    
+
       if(subMenuOpen) {menuArrow.classList.remove('subdrop') } else{ menuArrow.classList.add('subdrop');}
       console.log(subMenuOpen)
-    
+
   };
   const handlesidebar = () => {
     document.body.classList.toggle("mini-sidebar");
@@ -36,6 +36,7 @@ const Sidebar = (props) => {
     ulDiv.style.display = ulDiv.style.display === 'block' ? 'none' : 'block';
     div.classList.toggle('subdrop');
   };
+
   
   const expandMenu = () => {
     document.body.classList.remove("expand-menu");

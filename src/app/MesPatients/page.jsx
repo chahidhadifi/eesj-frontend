@@ -166,7 +166,7 @@ const MyPatients = () => {
         title: <span style={{ marginLeft: '20px' }}>Age</span>,
         dataIndex: 4,
         width: 200,
-        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text}</span>,
+        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text} ans</span>,
         sorter: (a, b) => b[3].localeCompare(a[3])
     },
     {
@@ -192,12 +192,6 @@ const MyPatients = () => {
         title: <span style={{ marginLeft: '20px' }}>Dossier médical</span>,
         width: 250,
         render: (item) => <a href={'/MesPatients/' + item[0]} style={{marginLeft: '20px'}}>Dossier médical</a>,
-    },
-    {
-        title: <span style={{ marginLeft: '20px' }}>Téléphone</span>,
-        dataIndex: 4,
-        width: 200,
-        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text}</span>,
     },
     
     // {
@@ -314,8 +308,8 @@ const applySearch = () => {
         return (
             patient[1].toLowerCase().includes(searchText.toLowerCase()) ||
             patient[2].toLowerCase().includes(searchText.toLowerCase()) ||
-            patient[9].toLowerCase().includes(searchText.toLowerCase()) ||
-            patient[20].toLowerCase().includes(searchText.toLowerCase())
+            patient[3].toLowerCase().includes(searchText.toLowerCase()) ||
+            patient[5].toLowerCase().includes(searchText.toLowerCase())
         );
     });
 

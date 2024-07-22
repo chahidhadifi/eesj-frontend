@@ -4,7 +4,7 @@ const patients =[
     "Ahmed",
     "Benbrahim",
     "Masculin",
-    "12 ans",
+    12,
     "Spondylose cervicale",
     "2023-07-15"
   ],
@@ -13,7 +13,7 @@ const patients =[
     "Fatima",
     "Zouhairi",
     "Feminin",
-    "23 ans",
+     23,
     "Hypertension légère",
     "2023-08-10"
   ]
