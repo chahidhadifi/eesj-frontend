@@ -129,69 +129,71 @@ const Home = () => {
           </div>
           <p style={{ fontWeight: "550" }}>Accès Rapide</p>
           <div className="doctor-list-blk" style={{ width: "100%" }}>
-            <div className="row">
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
-                <div className="doctor-widget border-right-bg">
-                  <div className="doctor-box-icon flex-shrink-0">
+          <div class="row d-flex justify-content-center">
+          <div class="col-sm-4 col-md-2">
+            <div className="doctor-widget border-right-bg">
+                <div className="doctor-box-icon flex-shrink-0">
                     <img src={bu.src} alt="" />
-                  </div>
-                  <div className="doctor-content dash-count flex-grow-1">
+                </div>
+                <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/MonProfil">
-                      <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Mon Profil</h4>
+                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Mon Profil</h4>
                     </Link>
-                  </div>
                 </div>
-              </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
-                <div className="doctor-widget border-right-bg">
-                  <div className="doctor-box-icon flex-shrink-0">
-                    <img src={gp.src} alt="" />
-                  </div>
-                  <div className="doctor-content dash-count flex-grow-1">
-                    <Link href="/MesPatients">
-                      <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Mes Patients</h4>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
-                <div className="doctor-widget border-right-bg">
-                  <div className="doctor-box-icon flex-shrink-0">
-                    <img src={cb.src} alt="" />
-                  </div>
-                  <div className="doctor-content dash-count flex-grow-1">
-                    <Link href="/ChatBot">
-                      <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Chat Bot</h4>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
-                <div className="doctor-widget border-right-bg">
-                  <div className="doctor-box-icon flex-shrink-0">
-                    <img src={tv.src} alt="" />
-                  </div>
-                  <div className="doctor-content dash-count flex-grow-1">
-                    <Link href="/TéléExpertise">
-                      <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Télé-Expertise</h4>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5">
-                <div className="doctor-widget">
-                  <div className="doctor-box-icon flex-shrink-0">
-                    <img src={tv.src} alt="" />
-                  </div>
-                  <div className="doctor-content dash-count flex-grow-1">
-                    <Link href="/IES">
-                      <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>IES</h4>
-                    </Link>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
+        <div class="col-sm-4 col-md-2">
+            <div className="doctor-widget border-right-bg">
+                <div className="doctor-box-icon flex-shrink-0">
+                    <img src={gp.src} alt="" />
+                </div>
+                <div className="doctor-content dash-count flex-grow-1">
+                    <Link href="/MesPatients">
+                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Mes Patients</h4>
+                    </Link>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-4 col-md-2" >
+            <div className="doctor-widget border-right-bg">
+                <div className="doctor-box-icon flex-shrink-0">
+                    <img src={cb.src} alt="" />
+                </div>
+                <div className="doctor-content dash-count flex-grow-1">
+                    <Link href="/ChatBot">
+                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Chat Bot</h4>
+                    </Link>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-2" >
+            <div className="doctor-widget border-right-bg" style={{paddingLeft:"30px"}}>
+                <div className="doctor-box-icon flex-shrink-0" >
+                    <img src={tv.src} alt="" />
+                </div>
+                <div className="doctor-content dash-count flex-grow-1">
+                    <Link href="/TéléExpertise">
+                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Télé-Expertise</h4>
+                    </Link>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-2" style={{marginLeft:"10px"}}>
+            <div className="doctor-widget">
+                <div className="doctor-box-icon flex-shrink-0">
+                    <img src={tv.src} alt="" />
+                </div>
+                <div className="doctor-content dash-count flex-grow-1">
+                    <Link href="/IES">
+                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>IES</h4>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
           <div>
             <div></div>
             <div></div>
