@@ -6,7 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import Sidebar from "@components/Sidebar";
-import { morning_img_02, bu, gp, tv, cb } from "@components/imagepath";
+import { morning_img_02, bu, gp, tv, cb ,i} from "@components/imagepath";
 import { useRouter } from "next/navigation";
 import { Card } from "antd";
 import "boxicons/css/boxicons.min.css";
@@ -16,6 +16,12 @@ const appointments = [
   { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
   { day: "Wednesday", hour: "2:00 PM", patient: "Jane Smith" },
   { day: "Friday", hour: "1:00 PM", patient: "Bob Johnson" },
+  { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
+
+  { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
+
+  { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
+
 ];
 
 const Home = () => {
@@ -110,7 +116,7 @@ const Home = () => {
                           className="status-orange"
                           style={{ cursor: "default" }}
                           data-bs-toggle="tooltip"
-                          data-bs-title="Si votre évaluation est faible, complétez toutes les informations de votre profil."
+                          data-bs-title="Si votre le nombre des étoiles est faible, complétez toutes les informations de votre profil."
                         >
                           !
                         </span>
@@ -182,7 +188,7 @@ const Home = () => {
         <div class="col-sm-4 col-md-2" style={{marginLeft:"10px"}}>
             <div className="doctor-widget">
                 <div className="doctor-box-icon flex-shrink-0">
-                    <img src={tv.src} alt="" />
+                    <img src={i.src} alt="" />
                 </div>
                 <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/IES">
@@ -202,7 +208,7 @@ const Home = () => {
           <div className="row d-flex flex-column flex-xl-row">
             <div className="col-sm-6">
               <p style={{ fontWeight: '550' }}>Rendez-vous</p>
-              <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Card className="custom-card" style={{ height: "600px", display: 'flex', justifyContent: 'center', alignItems: 'center' , width:"700px" }}>
                 <div className="card-bodyy" >
                   <h5 className="card-title">À venir</h5>
                   {appointments.map((appointment, index) => (
@@ -216,7 +222,7 @@ const Home = () => {
                   ))}
                 </div>
               </Card>
-              <Card className="custom-card" style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Card className="custom-card" style={{ height: "600px", display: 'flex', justifyContent: 'center', alignItems: 'center', width:"700px" }}>
                 <div className="card-bodyy">
                   <h5 className="card-title">Dernières consultations</h5>
                   {appointments.map((appointment, index) => (
@@ -231,11 +237,11 @@ const Home = () => {
                 </div>
               </Card>
             </div>
-            <div className="col-sm-6">
+            <div className="col-sm-6" >
               <p style={{ fontWeight: "550" }}>Dernières nouvelles de santé</p>
               {news.slice(0, 3).length > 0 ? (
                 news.slice(0, 3).map((article, index) => (
-                  <Card key={index} className="custom-card ">
+                  <Card key={index} className="custom-card " style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center', width:"800px" }}>
                     <div className="card-bodyy">
                       <h5 className="card-title">{article.title}</h5>
                       <p className="card-text">{article.description}</p>

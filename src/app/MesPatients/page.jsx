@@ -22,7 +22,7 @@ const MyPatients = () => {
   const [searchText, setSearchText] = useState("");
   const ageRanges = Array.from({ length: 16 }, (_, index) => index + 10);
 
-//   const data = patients;
+// const data = patients;
   const [data, setData] = useState(null);
 
   const getAllJeunes = () => {

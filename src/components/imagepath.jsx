@@ -10,6 +10,7 @@ export {default as gp} from "../assets/img/icons/patient.png"
 export {default as tv} from "../assets/img/icons/television.png"
 export {default as cb} from "../assets/img/icons/chatbot.png"
 export {default as newlogo} from "../assets/img/newlogo.png"
+export {default as i} from "../assets/img/icons/i.png"
 
 
 export { default as baricon } from "../assets/img/icons/bar-icon.svg";
