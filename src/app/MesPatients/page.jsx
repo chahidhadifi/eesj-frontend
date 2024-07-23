@@ -36,6 +36,21 @@ const MyPatients = () => {
     })
   }
 
+  const updateFavoriteState = async (jeuneId, favorite) => {
+    await axios.put(`http://localhost:8080/jeune/favorite/${jeuneId}/${favorite}`)
+    .then(res => {
+        getAllJeunes();
+    })
+    .catch(err => {
+        console.log(err);
+    })
+  };
+
+  const handleCheckboxChange = async (event, jeuneId) => {
+    const favorite = event.target.checked;
+    await updateFavoriteState(jeuneId, favorite);
+  };
+
   const filteredData = useMemo(() => {
     return data && data.filter((item) =>
       item[1].toLowerCase().includes(searchText.toLowerCase())
@@ -46,7 +61,7 @@ const MyPatients = () => {
     {
         title : " ",
         width : 40,
-        render : (item) => <input className="star" type="checkbox" checked={ item[8] } />
+        render : (item) => <input className="star" type="checkbox" checked={ item[8] } onChange={(event) => handleCheckboxChange(event, item[0])} />
     },
     // {
     //     title: <span style={{ marginLeft : '30px' }}>Id</span>,
@@ -92,12 +107,6 @@ const MyPatients = () => {
         width: 250,
         render: (text) => <span style={{ textAlign: 'center' }}>{text}</span>,
     },
-    // {
-    //     title: <span style={{ marginLeft: '20px' }}>Email</span>,
-    //     dataIndex: 5,
-    //     width: 200,
-    //     render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text}</span>,
-    // },
     {
         title: <span style={{ marginLeft: '20px' }}>Date de consultation</span>,
         dataIndex: 6,
@@ -110,106 +119,7 @@ const MyPatients = () => {
         width: 250,
         render: (item) => <a href={'/MesPatients/DossierMedical/' + item[0]} style={{marginLeft: '20px'}}>Dossier médical</a>,
     },
-    
-    // {
-    //     title: "Age",
-    //     dataIndex: "Age",
-    //     sorter: (a, b) => a.Age - b.Age,
-    //     width: 150,
-    //     render: (text) => <span style={{ whiteSpace: 'pre-wrap' }}>{text} ans </span>,
-    // },
-    // {
-    //     title: "Maladie",
-    //     dataIndex: "Disease",
-    //     ellipsis: true,
-    //     width: 150,
-    //     render: (text) => <span style={{ whiteSpace: 'pre-wrap' }}>{text}</span>,
-    // },
-    // {
-    //     title: "Dossier Médical",
-    //     dataIndex: "dossier",
-    //     ellipsis: true,
-    //     width: 200,
-    //     render: (text, record) => (
-    //         <>
-    //             <Link href="#">{record.dossier}</Link>
-    //         </>
-    //     )
-    // },
-    // {
-    //     title: "Téléphone",
-    //     dataIndex: "Mobile",
-    //     width: 150,
-    //     render: (text) => <span style={{ whiteSpace: 'pre-wrap' }}>{text}</span>,
-    // },
-    // {
-    //     title: "Date de consultation",
-    //     dataIndex: "Date",
-    //     sorter: (a, b) => moment(a.Date, "DD-MM-YYYY").unix() - moment(b.Date, "DD-MM-YYYY").unix(),
-    //     width: 200,
-    //     render: (text) => <span>{text}</span>,
-    // },
 ];
-
-//   const columns = [
-//     {
-//         title : " ",
-//         width : 40,
-//         render : () => <input className="star" type="checkbox" />
-//     },
-   
-//     {
-//         title: <span style={{ marginLeft : '30px' }}>Nom</span>,
-//         dataIndex: "Name",
-//         width: 200,
-//         render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '0px'  }}>{text}</span>,
-//         sorter: (a, b) => a.Name.localeCompare(b.Name)
-//     },
-//     {
-//         title: <span style={{ marginLeft: '20px' }}>Sexe</span>,
-//         dataIndex: "Gender",
-//         width: 200,
-//         render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text}</span>,
-//     },
-//     {
-//         title: "Age",
-//         dataIndex: "Age",
-//         sorter: (a, b) => a.Age - b.Age,
-//         width: 150,
-//         render: (text) => <span style={{ whiteSpace: 'pre-wrap' }}>{text} ans </span>,
-//     },
-//     {
-//         title: "Maladie",
-//         dataIndex: "Disease",
-//         ellipsis: true,
-//         width: 150,
-//         render: (text) => <span style={{ whiteSpace: 'pre-wrap' }}>{text}</span>,
-//     },
-//     {
-//         title: "Dossier Médical",
-//         dataIndex: "dossier",
-//         ellipsis: true,
-//         width: 200,
-//         render: (text, record) => (
-//             <>
-//                 <Link href="#">{record.dossier}</Link>
-//             </>
-//         )
-//     },
-//     {
-//         title: "Téléphone",
-//         dataIndex: "Mobile",
-//         width: 150,
-//         render: (text) => <span style={{ whiteSpace: 'pre-wrap' }}>{text}</span>,
-//     },
-//     {
-//         title: "Date de consultation",
-//         dataIndex: "Date",
-//         sorter: (a, b) => moment(a.Date, "DD-MM-YYYY").unix() - moment(b.Date, "DD-MM-YYYY").unix(),
-//         width: 200,
-//         render: (text) => <span>{text}</span>,
-//     },
-// ];
 
 const openDrawer = () => {
     setDrawerVisible(true);
