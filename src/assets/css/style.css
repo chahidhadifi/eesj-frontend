@@ -4594,8 +4594,8 @@ a.vert-icon:hover {
   background-color: #234ce3;
 }
 .form-check-input:checked {
-  background-color: #00d3c7;
-  border-color: #00d3c7;
+  background-color: #dd9612;
+  border-color: #dd9612;
 }
 .select-gender .form-check-input:focus {
   box-shadow: none;

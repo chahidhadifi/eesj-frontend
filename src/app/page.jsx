@@ -116,7 +116,7 @@ const Home = () => {
                           className="status-orange"
                           style={{ cursor: "default" }}
                           data-bs-toggle="tooltip"
-                          data-bs-title="Si votre le nombre des étoiles est faible, complétez toutes les informations de votre profil."
+                          data-bs-title="Si  le nombre des étoiles est faible, complétez toutes les informations de votre profil."
                         >
                           !
                         </span>

@@ -84,7 +84,7 @@ const Sidebar = (props) => {
                     props?.activeClassName === "chat" ? "active" : ""
                   }
                   href="/MonProfil"
-                >Profile du Médecin</Link>
+                >Profil du Médecin</Link>
                   </li>
                   <li>
                   <Link
@@ -92,7 +92,7 @@ const Sidebar = (props) => {
                     props?.activeClassName === "chat" ? "active" : ""
                   }
                   href="/ModifierProfil"
-                >Modifier Mon Profile</Link>
+                >Modifier Mon Profil</Link>
                   </li>
                 </ul>
                 
@@ -115,10 +115,10 @@ const Sidebar = (props) => {
                   className={
                     props?.activeClassName === "doctors" ? "active" : ""
                   }
-                  href="/Chat"
+                  href="https://module-ies.vercel.app/ies/professional"
                 >
                   <span className="menu-side">
-                    <box-icon type='solid' name='bot' color='gray'></box-icon>
+                    <box-icon type='solid' name='info-circle' color='gray'></box-icon>
                   </span>{" "}
                   <span> IES</span>
                 </Link>
@@ -141,7 +141,7 @@ const Sidebar = (props) => {
                   className={
                     props?.activeClassName === "doctors" ? "active" : ""
                   }
-                  href="/Télé"
+                  href="/Tele"
                 >
                   <span className="menu-side">
                     <box-icon name='tv' color='gray'></box-icon>
