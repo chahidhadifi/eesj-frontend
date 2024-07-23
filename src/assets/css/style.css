@@ -11608,3 +11608,7 @@ tr.ant-table-row.ant-table-row-level-0.ant-table-row-selected,
  position: absolute;
  color: yellow;
 }
+
+nextjs-portal {
+  display: none;
+}

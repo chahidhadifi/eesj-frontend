@@ -1,17 +1,71 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import "../../../../assets/css/style.css";
 import Sidebar from "@components/Sidebar";
- 
-import {
-  blogimg2,
-  medalicon03,
-  medalicon,
-  medalicon02
-} from "@/components/imagepath";
 
-const page = (props) => {  
+
+import { useEffect, useState } from "react";
+import axios from 'axios';
+
+import 'boxicons';
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+
+const page = ({ params }) => {
+  const { GoogleGenerativeAI } = require("@google/generative-ai");
+  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY);
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+  const [patient, setPatient] = useState(null);
+  
+  const [antecedentPersonnelMedicaux, setAntecedentPersonnelMedicaux] = useState(null);
+  const [antecedentPersonnelChirurgicaux, setAntecedentPersonnelChirurgicaux] = useState(null);
+  const [antecedentPersonnelHabitudes, setAntecedentPersonnelHabitudes] = useState(null);
+
+  const [antecedentFamilial, setAntecedentFamilial] = useState(null);
+
+  const [consultations, setConsultation] = useState(null);
+
+  const [observation, setObservation] = useState(null);
+
+  const [analysePatient, setAnalysePatient] = useState('');
+  const [message, setMessage] = useState(null);
+
+  const getDossierMedicalInformations = () => {
+    axios.get('http://localhost:8080/jeune/dossier-medical/' + params.id)
+    .then(res => {
+      setPatient(res.data);
+      setMessage(`"${res.data}"
+        Je suis médecin et j'analyse le dossier médical du patient. Je vous demande de me fournir des recommandations pour améliorer sa santé et son bien-être, ainsi que des suggestions sur les types de médicaments qui pourraient être envisagés pour les conditions mentionnées dans le dossier médical. Agissez comme un médecin en structurant votre réponse comme suit :
+        #### Recommandations générales: (Écrivez ici vos recommandations pour améliorer la santé et le bien-être du patient.)
+        #### Médicaments potentiels: (Énumérez ici les médicaments qui pourraient être envisagés pour les conditions médicales spécifiques mentionnées dans le dossier.)
+        Conclusion: (Veuillez inclure une synthèse brève de vos recommandations et suggestions médicamenteuses.)
+        NB: Donner moi la réponse sans ces phrases: "Il est important de rappeler que je ne suis pas un médecin", "Il est crucial de consulter un médecin" et "il est important de consulter un médecin".`);
+      setAntecedentPersonnelMedicaux(res.data[16].split('#'));
+      setAntecedentPersonnelChirurgicaux(res.data[17].split('#'));
+      setAntecedentPersonnelHabitudes(res.data[18].split('#'));
+      setAntecedentFamilial(res.data[19].split('#'));
+      setObservation(res.data[20].split('#'));
+      setConsultation(res.data[21].split('#').map(item => item.split(';')));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  };
+
+  const fetchMessage = async () => {
+    if (model != null) {
+      const result = await model?.generateContent([message]);
+      setAnalysePatient(result?.response?.text());
+    }
+  }
+
+  useEffect(() => {
+    getDossierMedicalInformations();
+    fetchMessage();
+  }, [message]);
+
   return (
     <div id="root">
       <div className="page-wrapper">
@@ -23,92 +77,209 @@ const page = (props) => {
                 <div className="blog-content">
                   <div className="blog-grp-blk">
                     <div className="blog-img-blk">
-                      <Link href="/blog">
-                        <Image className="img-fluid" src={blogimg2} alt="#" />
-                      </Link>
+                      <img className="img-fluid" src={ patient && patient[6] } alt="#" />
                       <div className="content-blk-blog ms-2 customized-subtittle">
-                        <h3>Jenifer Robinsond</h3>
-                        <h5>Homme, 14 Ans</h5>
+                        <h3>{ patient && ( patient[2] + ' ' + patient[1] ) }</h3>
+                        <h5>{ patient && patient[7] + ', ' + patient[8]} Ans</h5>
                       </div>
                     </div>
                   </div>
                   <div className="about-me-list subcontent">
+                    <h4 style={{ marginBottom: '20px', color: '#2E37A4', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                      <box-icon type='solid' name='user-badge' color='#2E37A4'></box-icon>
+                      <div style={{ marginLeft: '5px' }}>Informations du patient</div>
+                    </h4>
                     <ul className="list-space">
                       <li>
                         <h4>NIP</h4>
-                        <span>I731727</span>
+                        <span>{ patient && patient[11] }</span>
                       </li>
                       <li>
                         <h4>CIN</h4>
-                        <span>SB1294</span>
+                        <span>{ patient && patient[5] }</span>
                       </li>
                       <li>
                         <h4>Date de Naissance</h4>
-                        <span>21 Juin 2008</span>
+                        <span>{ patient && patient[10] }</span>
                       </li>
                       <li>
                         <h4>Adresse</h4>
-                        <span>13 Rue Elwahda, Sale</span>
+                        <span>{ patient && patient[9] }</span>
                       </li>
                       <li>
                         <h4>Adresse Email</h4>
-                        <span>jamal.morocco@gmail.com</span>
+                        <span>{ patient && patient[3] }</span>
                       </li>
                       <li>
                         <h4>Numéro de Teléphone</h4>
-                        <span>06 72 20 21 33</span>
+                        <span>{ patient && patient[4] }</span>
                       </li>
                       <li>
                         <h4>Scolarisation</h4>
-                        <span>Oui</span>
+                        <span>{ patient && patient[12] ? 'Oui' : 'Non' }</span>
                       </li>
                       <li>
-                        <h4>Niveau d etude</h4>
-                        <span>Lycee</span>
+                        <h4>Niveau d'études</h4>
+                        <span>{ patient && patient[13] }</span>
                       </li>
                       <li>
                         <h4>CNE</h4>
-                        <span>H1309818912</span>
+                        <span>{ patient && patient[14] }</span>
                       </li>
                     </ul>
+                    <h4 style={{ marginBottom: '20px', marginTop: '20px', color: '#2E37A4', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                      <box-icon type='solid' name='user' color='#2E37A4'></box-icon>
+                      <div style={{ marginLeft: '5px' }}>Antécédents personnels</div>
+                    </h4>
+                    <ul className="list-space">
+                      <li style={{alignItems: 'start'}}>
+                        <h4>Chirurgicaux</h4>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                          {
+                            antecedentPersonnelChirurgicaux && antecedentPersonnelChirurgicaux.map((item, index) => (
+                              <span key={index}>{ item }</span>
+                            ))
+                          }
+                        </div>
+                      </li>
+                      <li>
+                        <h4>Medicaux</h4>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                          {
+                            antecedentPersonnelMedicaux && antecedentPersonnelMedicaux.map((item, index) => (
+                              <span key={index}>{ item }</span>
+                            ))
+                          }
+                        </div>
+                      </li>
+                      <li>
+                        <h4>Habitudes</h4>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                          {
+                            antecedentPersonnelHabitudes && antecedentPersonnelHabitudes.map((item, index) => (
+                              <span key={index}>{ item }</span>
+                            ))
+                          }
+                        </div>
+                      </li>
+                    </ul>
+                    <h4 style={{ marginBottom: '20px', marginTop: '20px', color: '#2E37A4', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                      <box-icon name='group' type='solid' color='#2E37A4'></box-icon>
+                      <div style={{ marginLeft: '5px' }}>Antécédents familiales</div>
+                    </h4>
+                    <ul className="list-space">
+                      <li style={{alignItems: 'start'}}>
+                        <h4>Maladies familiales</h4>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                          {
+                            antecedentFamilial && antecedentFamilial.map((item, index) => (
+                              <span key={index}>{ item }</span>
+                            ))
+                          }
+                        </div>
+                      </li>
+                    </ul>
+                    <h4 style={{ marginBottom: '20px', marginTop: '20px', color: '#2E37A4', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                      <box-icon type='solid' name='calendar' color='#2E37A4'></box-icon>
+                      <div style={{ marginLeft: '5px' }}>Consultations</div>
+                    </h4>
+                    {
+                      consultations && consultations.map((item, index) => (
+                        <div>
+                          <h4 style={{ marginBottom: '20px', marginTop: '20px', textAlign: 'center' }}>Consultations { index + 1 }</h4>
+                          <ul className="list-space">
+                            <li style={{alignItems: 'start'}}>
+                              <h4>Date consultation</h4>
+                              <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <span key={index}>{ item[0] }</span>
+                              </div>
+                            </li>
+                            <li style={{alignItems: 'start', marginTop: '-20px'}}>
+                              <h4>Motif consultation</h4>
+                              <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <span key={index}>{ item[1] }</span>
+                              </div>
+                            </li>
+                            <li style={{alignItems: 'start', marginTop: '-20px'}}>
+                              <h4>Diagnostic</h4>
+                              <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <span key={index}>{ item[2] }</span>
+                              </div>
+                            </li>
+                            <li style={{alignItems: 'start', marginTop: '-20px'}}>
+                              <h4>Traitement</h4>
+                              <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <span key={index}>{ item[3] }</span>
+                              </div>
+                            </li>
+                            <li style={{alignItems: 'start', marginTop: '-20px'}}>
+                              <h4>Recommandation</h4>
+                              <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <span key={index}>{ item[4] }</span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      ))
+                    }
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-xl-3">
+            <div className="col-xl-6">
               <div className="doctor-personals-grp">
                 <div className="card">
                   <div className="card-body">
-                    {/* <div className="heading-detail">
-                      <h4>Speciality</h4>
-                    </div> */}
-                    <Link href='Patient/Consultation/Ajouter' className="personal-activity">
+                    <div className="personal-activity">
                       <div className="personal-icons status-grey">
-                        <Image src={medalicon} alt="" />
+                        {/* <Image src={medalicon} alt="" /> */}
+                        <box-icon type='solid' name='info-circle' color='#2E37A4'></box-icon>
                       </div>
                       <div className="views-personal">
-                        <h4>Consultations</h4>
-                        <h5>Ajouter Une Nouvelle Consultation </h5>
+                        <h4>Observations</h4>
+                        <h5>Observations sur le patient</h5>
                       </div>
-                    </Link>
-                    <Link href='Patient/Historique' className="personal-activity">
-                      <div className="personal-icons status-green">
-                        <Image src={medalicon02} alt="" />
+                    </div>
+                    <ul>
+                      {
+                        observation && observation.map((item, index) => (
+                          <li key={index}>{ item }</li>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="doctor-personals-grp">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="personal-activity">
+                      <div className="personal-icons status-grey">
+                        {/* <Image src={medalicon} alt="" /> */}
+                        <box-icon type='solid' name='notepad' color='#2E37A4'></box-icon>
                       </div>
                       <div className="views-personal">
-                        <h4>Historique</h4>
-                        <h5>L&#39;historique de Consultation</h5>
+                        <h4>Analyse du patient</h4>
+                        <h5>Suggestions pour améliorer sa santé et son bien-être</h5>
                       </div>
-                    </Link>
-                    <Link href='#' className="personal-activity mb-0">
-                      <div className="personal-icons status-orange">
-                        <Image src={medalicon03} alt="" />
-                      </div>
-                      <div className="views-personal">
-                        <h4>Compte Rendu</h4>
-                        <h5>Generer son Compte Rendu</h5>
-                      </div>
-                    </Link>
+                    </div>
+                    {/* className="markdown-container" */}
+                    <div>
+                      { 
+                        analysePatient.length == 0 ? 
+                        <div class="text-center">
+                          <div class="spinner-border text-secondary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </div>
+                        :
+                        <div>
+                          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                            {analysePatient}
+                          </ReactMarkdown>
+                        </div>
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
