@@ -263,7 +263,6 @@ const page = ({ params }) => {
                         <h5>Suggestions pour améliorer sa santé et son bien-être</h5>
                       </div>
                     </div>
-                    {/* className="markdown-container" */}
                     <div>
                       { 
                         analysePatient.length == 0 ? 

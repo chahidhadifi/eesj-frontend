@@ -46,7 +46,7 @@ const MyPatients = () => {
     {
         title : " ",
         width : 40,
-        render : (item) => <input className="star" type="checkbox" checked={ item[14] } />
+        render : (item) => <input className="star" type="checkbox" checked={ item[8] } />
     },
     // {
     //     title: <span style={{ marginLeft : '30px' }}>Id</span>,
@@ -55,6 +55,13 @@ const MyPatients = () => {
     //     sorter: (a, b) => a[0] - b[0],
     //     render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '0px' }}>{text}</span>,
     // },
+    {
+        title: <span style={{ textAlign: 'center' }}>NIP</span>,
+        dataIndex: 7,
+        width: 200,
+        sorter: (a, b) => a[7] - b[7],
+        render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '0px' }}>{text}</span>,
+    },
     {
         title: <span style={{ textAlign: 'center' }}>Nom et Prénom</span>,
         dataIndex: 0, // This is just a placeholder; we use custom rendering below
