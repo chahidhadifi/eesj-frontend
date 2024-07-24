@@ -30,6 +30,8 @@ const Home = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [news, setNews] = useState([]); // Add news state
 
+  const [favoritePatients, setFavoritePatients] = useState(null);
+
   useEffect(() => {
     window.bootstrap = bootstrap;
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -37,6 +39,7 @@ const Home = () => {
       (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
     );
     getAllHealthNews();
+    getFavoritePatients();
   }, []);
 
   const getAllHealthNews = () => {
@@ -50,6 +53,16 @@ const Home = () => {
         console.log(err);
       });
   };
+
+  const getFavoritePatients = () => {
+    axios.get('http://localhost:8080/jeune/favorite-patients')
+    .then(res => {
+      setFavoritePatients(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -133,7 +146,11 @@ const Home = () => {
             </div>
             {/* Bonjour Section */}
           </div>
-          <p style={{ fontWeight: "550" }}>Accès Rapide</p>
+          {/* <p style={{ fontWeight: "550" }}>Accès Rapide</p> */}
+          <div className="d-flex flex-row mt-4">
+                <box-icon type='solid' name='rocket' color='#2E37A4'></box-icon>
+                <p className="mx-2" style={{ fontWeight: '550' }}>Accès Rapide</p>
+          </div>
           <div className="doctor-list-blk" style={{ width: "100%" }}>
           <div class="row d-flex justify-content-center">
           <div class="col-sm-4 col-md-2">
@@ -207,7 +224,11 @@ const Home = () => {
           <p style={{ marginTop: "3rem", fontWeight: "550" }}></p>
           <div className="row d-flex flex-column flex-xl-row">
             <div className="col-sm-6">
-              <p style={{ fontWeight: '550' }}>Rendez-vous</p>
+              {/* <p style={{ fontWeight: '550' }}>Rendez-vous</p> */}
+              <div className="d-flex flex-row mt-4">
+                <box-icon type='solid' name='calendar' color='#2E37A4'></box-icon>
+                <p className="mx-2" style={{ fontWeight: '550' }}>Rendez-vous</p>
+              </div>
               <Card className="custom-card" style={{ height: "600px", display: 'flex', justifyContent: 'center', alignItems: 'center' , width:"700px" }}>
                 <div className="card-bodyy" >
                   <h5 className="card-title">À venir</h5>
@@ -236,9 +257,39 @@ const Home = () => {
                   ))}
                 </div>
               </Card>
+              <div className="d-flex flex-row mt-4">
+                <box-icon type='solid' name='bookmark-star' color='#2E37A4'></box-icon>
+                <p className="mx-2" style={{ fontWeight: '550' }}>Patients favoris</p>
+              </div>
+              <Card className="custom-card" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , width:"700px" }}>
+                {
+                  favoritePatients && favoritePatients.map((item, index) => (
+                    <div className="card-bodyy" key={index}>
+                      <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-sm-5">
+                                <img class="card-img" src={ item[5] } alt=""/>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="card-body">
+                                    <h4 class="card-title">{ item[2] + ' ' + item[1] }</h4>
+                                    <p class="card-text" style={{ width: '300px' }}>{ item[3] }, { item[4] } ans</p>
+                                    <a href={'/MesPatients/DossierMedical/' + item[0]} class="btn btn-primary">Consulter le dossier médical</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </Card>
             </div>
             <div className="col-sm-6" >
-              <p style={{ fontWeight: "550" }}>Dernières nouvelles de santé</p>
+              {/* <p style={{ fontWeight: "550" }}>Dernières nouvelles de santé</p> */}
+              <div className="d-flex flex-row mt-4">
+                <box-icon type='solid' name='news' color='#2E37A4'></box-icon>
+                <p className="mx-2" style={{ fontWeight: '550' }}>Dernières nouvelles de santé</p>
+              </div>
               {news.slice(0, 3).length > 0 ? (
                 news.slice(0, 3).map((article, index) => (
                   <Card key={index} className="custom-card " style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center', width:"800px" }}>
