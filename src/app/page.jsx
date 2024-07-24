@@ -17,18 +17,15 @@ const appointments = [
   { day: "Wednesday", hour: "2:00 PM", patient: "Jane Smith" },
   { day: "Friday", hour: "1:00 PM", patient: "Bob Johnson" },
   { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
-
   { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
-
   { day: "Monday", hour: "10:00 AM", patient: "John Doe" },
-
 ];
 
 const Home = () => {
   const router = useRouter();
-  const [rating, setRating] = useState(3); // Suppose we fetch this from the database
+  const [rating, setRating] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [news, setNews] = useState([]); // Add news state
+  const [news, setNews] = useState([]);
 
   const [favoritePatients, setFavoritePatients] = useState(null);
 
@@ -40,6 +37,7 @@ const Home = () => {
     );
     getAllHealthNews();
     getFavoritePatients();
+    getMedecinEvaluation();
   }, []);
 
   const getAllHealthNews = () => {
@@ -63,6 +61,22 @@ const Home = () => {
       console.log(err);
     })
   }
+
+  const getMedecinEvaluation = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/medecin/evaluation');
+      const data = response.data;
+      let newRating = 0;
+      for (let i = 1; i <= 5; i++) {
+        if (data[i] !== null && data[i] !== "") {
+          newRating++;
+        }
+      }
+      setRating(newRating);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
