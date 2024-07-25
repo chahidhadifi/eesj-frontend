@@ -42,8 +42,9 @@ const Home = () => {
 
   const getAllHealthNews = () => {
     //pub_488678f840dc44dfcd2ec89a5c7a1c935d490
+    // pub_49337535ef755132b13ece3e4b4f7ccf6a335
     axios
-      .get("https://newsdata.io/api/1/news?apikey=pub_488678f840dc44dfcd2ec89a5c7a1c935d490&country=fr&language=fr&category=health")
+      .get("https://newsdata.io/api/1/news?apikey=pub_49337535ef755132b13ece3e4b4f7ccf6a335&q=health&country=fr,ma&language=en,fr&category=health ")
       .then((res) => {
         setNews(res.data.results);
       })
@@ -131,17 +132,17 @@ const Home = () => {
                 <div className="col-md-6">
                   <div className="morning-user">
                     <h2>
-                      Bonjour, <span>Dr. Khalid Amine </span>
+                      Bonjour, <span>Dr. El Amrani Mohamed </span>
                     </h2>
                     <p>Bonne journée au travail</p>
-                    <div className="star-rating" style={{ display: "inline-block" }}>
+                    <div className="star-rating" style={{ display: "inline-block", marginTop: '20px' }}>
                       {renderStars(rating)}
                     </div>
                     <div style={{ display: "inline-block", marginTop: "-4px" }}>
                       <div className="container-exclamation align-up" style={{ marginLeft: "10px", display: "flex" }}>
                         <span
                           className="status-orange"
-                          style={{ cursor: "default" }}
+                          style={{ cursor: "default", fontWeight: 'bold', color: 'black' }}
                           data-bs-toggle="tooltip"
                           data-bs-title="Si  le nombre des étoiles est faible, complétez toutes les informations de votre profil."
                         >
@@ -174,7 +175,7 @@ const Home = () => {
                 </div>
                 <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/MonProfil">
-                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Mon Profil</h4>
+                        <h4 style={{ color: "#333448", fontSize: "18px" , fontWeight: "700" }}>Mon Profil</h4>
                     </Link>
                 </div>
             </div>
@@ -186,7 +187,7 @@ const Home = () => {
                 </div>
                 <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/MesPatients">
-                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Mes Patients</h4>
+                        <h4 style={{ color: "#333448", fontSize: "18px" , fontWeight: "700" }}>Mes Patients</h4>
                     </Link>
                 </div>
             </div>
@@ -199,31 +200,31 @@ const Home = () => {
                 </div>
                 <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/ChatBot">
-                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Chat Bot</h4>
+                        <h4 style={{ color: "#333448", fontSize: "18px" , fontWeight: "700" }}>Chat Bot</h4>
                     </Link>
                 </div>
             </div>
         </div>
         <div class="col-sm-4 col-md-2" >
-            <div className="doctor-widget border-right-bg" style={{paddingLeft:"30px"}}>
+            <div className="doctor-widget border-right-bg" >
                 <div className="doctor-box-icon flex-shrink-0" >
                     <img src={tv.src} alt="" />
                 </div>
                 <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/TéléExpertise">
-                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>Télé-Expertise</h4>
+                        <h4 style={{ color: "#333448", fontSize: "18px" , fontWeight: "700" }}>Télé-Expertise</h4>
                     </Link>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 col-md-2" style={{marginLeft:"10px"}}>
+        <div class="col-sm-4 col-md-2" >
             <div className="doctor-widget">
                 <div className="doctor-box-icon flex-shrink-0">
                     <img src={i.src} alt="" />
                 </div>
                 <div className="doctor-content dash-count flex-grow-1">
                     <Link href="/IES">
-                        <h4 style={{ color: "black", fontSize: "23px", marginLeft: "20px", fontWeight: "300" }}>IES</h4>
+                        <h4 style={{ color: "#333448", fontSize: "18px" , fontWeight: "700" }}>IES</h4>
                     </Link>
                 </div>
             </div>
@@ -273,7 +274,7 @@ const Home = () => {
               </Card>
               <div className="d-flex flex-row mt-4">
                 <box-icon type='solid' name='bookmark-star' color='#2E37A4'></box-icon>
-                <p className="mx-2" style={{ fontWeight: '550' }}>Patients favoris</p>
+                <p className="mx-2" style={{ fontWeight: '550' }}>Patients épinglés</p>
               </div>
               <Card className="custom-card" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , width:"700px" }}>
                 {
@@ -298,23 +299,28 @@ const Home = () => {
                 }
               </Card>
             </div>
-            <div className="col-sm-6" >
+            <div className="col-sm-6" style={{ marginLeft: '-50px' }}>
               {/* <p style={{ fontWeight: "550" }}>Dernières nouvelles de santé</p> */}
               <div className="d-flex flex-row mt-4">
                 <box-icon type='solid' name='news' color='#2E37A4'></box-icon>
                 <p className="mx-2" style={{ fontWeight: '550' }}>Dernières nouvelles de santé</p>
               </div>
-              {news.slice(0, 3).length > 0 ? (
-                news.slice(0, 3).map((article, index) => (
+              {news.slice(0, 10).length > 0 ? (
+                news.slice(0, 10).map((article, index) => (
+                  (article.image_url != null) ?
                   <Card key={index} className="custom-card " style={{ height: "400px", display: 'flex', justifyContent: 'center', alignItems: 'center', width:"800px" }}>
-                    <div className="card-bodyy">
-                      <h5 className="card-title">{article.title}</h5>
-                      <p className="card-text">{article.description}</p>
-                      <a href={article.link} target="_blank" rel="noopener noreferrer">
-                        Lire la suite
-                      </a>
+                    <div className="card-bodyy" style={{ display: 'flex', flexDirection: 'row' }}>
+                      <div><img style={{ width: '350px', paddingRight: '10px' }} src={ article.image_url } alt="" /></div>
+                      <div>
+                        <h5 className="card-title">{article.title}</h5>
+                        <p className="card-text">{article.description}</p>
+                        <a href={article.link} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                          Lire la suite
+                        </a>
+                      </div>
                     </div>
                   </Card>
+                  : null
                 ))
               ) : (
                 <p>Aucune nouvelle trouvée.</p>

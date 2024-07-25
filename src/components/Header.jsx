@@ -319,12 +319,13 @@ const Header = () => {
               data-bs-toggle="dropdown"
             >
               <div className="user-names">
-                <h5>Khalid Amine</h5>
+                <h5>El Amrani Mohamed</h5>
               </div>
               {/* <span className="user-img">
                 <Image src={user06} alt="Admin"/>
               </span> */}
-              <Image src={user06} alt="Admin" className="user-img" />
+              {/* <Image src={user06} alt="Admin" className="user-img" /> */}
+              <img src="https://i.postimg.cc/Kzp0N0w8/image.png" alt="Admin" className="user-img" />
             </Link>
             <div className="dropdown-menu">
               <Link href="/MonProfil" className="dropdown-item">

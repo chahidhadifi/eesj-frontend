@@ -12,6 +12,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
+import html2pdf from 'html2pdf.js';
+
 const page = ({ params }) => {
   const { GoogleGenerativeAI } = require("@google/generative-ai");
   const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY);
@@ -61,6 +63,17 @@ const page = ({ params }) => {
     }
   }
 
+  const generatePdf = () => {
+    const element = document.getElementById('contentToPrint');
+    html2pdf(element, {
+      margin: 1,
+      filename: patient[2] + '_' + patient[1] + '.pdf',
+      image: { type: 'jpeg', quality: 0.20 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'p' },
+    });
+  };
+
   useEffect(() => {
     getDossierMedicalInformations();
     fetchMessage();
@@ -74,7 +87,7 @@ const page = ({ params }) => {
           <div className="row">
             <div className="col-sm-6 col-md-6 col-xl-5">
               <div className="blog grid-blog customized-blog">
-                <div className="blog-content">
+                <div className="blog-content" id="contentToPrint">
                   <div className="blog-grp-blk">
                     <div className="blog-img-blk">
                       <img className="img-fluid" src={ patient && patient[6] } alt="#" />
@@ -165,7 +178,7 @@ const page = ({ params }) => {
                     </ul>
                     <h4 style={{ marginBottom: '20px', marginTop: '20px', color: '#2E37A4', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                       <box-icon name='group' type='solid' color='#2E37A4'></box-icon>
-                      <div style={{ marginLeft: '5px' }}>Antécédents familiales</div>
+                      <div style={{ marginLeft: '5px' }}>Antécédents familiaux</div>
                     </h4>
                     <ul className="list-space">
                       <li style={{alignItems: 'start'}}>
@@ -224,6 +237,9 @@ const page = ({ params }) => {
                     }
                   </div>
                 </div>
+              </div>
+              <div style={{textAlign: 'center', marginBottom: '50px'}}>
+                <button class="btn btn-primary" onClick={generatePdf}>Générer un PDF</button>
               </div>
             </div>
             <div className="col-xl-6">

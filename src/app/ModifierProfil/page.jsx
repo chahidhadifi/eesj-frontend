@@ -1,7 +1,5 @@
 "use client";
 
-import "@assets/css/style.css";
-
 import React from 'react'
 import { useEffect, useState } from "react";
 import Link from 'next/link'
@@ -18,6 +16,8 @@ import 'boxicons/css/boxicons.min.css';
 import { Button, Card, Form, Input, Space, Typography } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
+import "@assets/css/style.css";
 
 
 
