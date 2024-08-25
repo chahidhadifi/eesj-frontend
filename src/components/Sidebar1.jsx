@@ -55,7 +55,7 @@ const Sidebar = (props) => {
                   className={
                     props?.activeClassName === "dashboard" ? "active" : ""
                   }
-                  href="/"
+                  href="/PageAccueil"
                 >
                   <span className="menu-side">
                     <Image src={dashboard} alt="" />
