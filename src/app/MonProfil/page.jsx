@@ -90,7 +90,7 @@ const page = () => {
                                       target='_blank'
                                     >
 
-                                      <FontAwesomeIcon icon={faLinkedin} style={{ color: '#0077B5', width: '38px' }} />
+                                      <FontAwesomeIcon icon={faLinkedin} style={{ color: '#0077B5', width: '40px' , height:'40px'}} />
 
                                     </a>
 
