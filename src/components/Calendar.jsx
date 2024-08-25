@@ -6,7 +6,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./Sidebar1";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import { DatePicker } from "antd";
 

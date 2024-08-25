@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/Sidebar1";
 import { morning_img_02, bu, gp, tv, cb } from "@components/imagepath";
 import { useRouter } from "next/navigation";
 import { Card } from "antd";

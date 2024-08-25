@@ -3,7 +3,7 @@ import "@assets/css/style.css";
 import { useMemo, useEffect, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/Sidebar1";
 import { Table, Drawer } from 'antd';
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import "@assets/css/font-awesome.min.css";

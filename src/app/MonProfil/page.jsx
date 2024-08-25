@@ -7,7 +7,7 @@ import "../../assets/css/style.css";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import Sidebar from '@components/Sidebar';
+import Sidebar from '@components/Sidebar1';
 import FeatherIcon from "feather-icons-react";
 const page = () => {
   return (

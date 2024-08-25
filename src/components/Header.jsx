@@ -131,54 +131,54 @@ const Header = () => {
     },
   ];
 
-  const notifications = [
-    {
-      id: 1,
-      avatar: "V",
-      user: "John Doe",
-      action: "added new task",
-      task: "Patient appointment booking",
-      time: "4 mins ago",
-      href: "/",
-    },
-    {
-      id: 2,
-      avatar: "V",
-      user: "Tarah Shropshire",
-      action: "changed the task name",
-      task: "Appointment booking with payment gateway",
-      time: "6 mins ago",
-      href: "/",
-    },
-    {
-      id: 3,
-      avatar: "L",
-      user: "Misty Tison",
-      action: "added",
-      task: "Doctor available module",
-      additional: ["Domenic Houston", "Claire Mapes"],
-      time: "8 mins ago",
-      href: "/",
-    },
-    {
-      id: 4,
-      avatar: "G",
-      user: "Rolland Webber",
-      action: "completed task",
-      task: "Patient and Doctor video conferencing",
-      time: "12 mins ago",
-      href: "/",
-    },
-    {
-      id: 5,
-      avatar: "V",
-      user: "Bernardo Galaviz",
-      action: "added new task",
-      task: "Private chat module",
-      time: "2 days ago",
-      href: "/",
-    },
-  ];
+  // const notifications = [
+  //   {
+  //     id: 1,
+  //     avatar: "V",
+  //     user: "John Doe",
+  //     action: "added new task",
+  //     task: "Patient appointment booking",
+  //     time: "4 mins ago",
+  //     href: "/",
+  //   },
+  //   {
+  //     id: 2,
+  //     avatar: "V",
+  //     user: "Tarah Shropshire",
+  //     action: "changed the task name",
+  //     task: "Appointment booking with payment gateway",
+  //     time: "6 mins ago",
+  //     href: "/",
+  //   },
+  //   {
+  //     id: 3,
+  //     avatar: "L",
+  //     user: "Misty Tison",
+  //     action: "added",
+  //     task: "Doctor available module",
+  //     additional: ["Domenic Houston", "Claire Mapes"],
+  //     time: "8 mins ago",
+  //     href: "/",
+  //   },
+  //   {
+  //     id: 4,
+  //     avatar: "G",
+  //     user: "Rolland Webber",
+  //     action: "completed task",
+  //     task: "Patient and Doctor video conferencing",
+  //     time: "12 mins ago",
+  //     href: "/",
+  //   },
+  //   {
+  //     id: 5,
+  //     avatar: "V",
+  //     user: "Bernardo Galaviz",
+  //     action: "added new task",
+  //     task: "Private chat module",
+  //     time: "2 days ago",
+  //     href: "/",
+  //   },
+  // ];
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
@@ -244,15 +244,15 @@ const Header = () => {
         
         <ul className="nav user-menu float-end">
           <li className="nav-item dropdown d-none d-sm-block">
-            <Link
+            {/* <Link
               href="/"
               className="dropdown-toggle nav-link"
               data-bs-toggle="dropdown"
             >
-              <Image src={noteicon1} alt="" />
+              <Image  alt="" />
               <span className="pulse" />{" "}
-            </Link>
-            <div className="dropdown-menu notifications">
+            </Link> */}
+            {/* <div className="dropdown-menu notifications">
               <div className="topnav-dropdown-header">
                 <span>Notifications</span>
               </div>
@@ -299,7 +299,7 @@ const Header = () => {
               <div className="topnav-dropdown-footer">
                 <Link href="/">View all Notifications</Link>
               </div>
-            </div>
+            </div> */}
           </li>
           {/* <li className="nav-item dropdown d-none d-sm-block">
             <Link

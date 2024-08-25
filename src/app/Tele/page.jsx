@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/Sidebar1";
 import { morning_img_02 } from "@components/imagepath";
 import { useRouter } from "next/navigation";
 

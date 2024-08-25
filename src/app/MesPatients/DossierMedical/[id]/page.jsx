@@ -1,6 +1,6 @@
 "use client";
 import "../../../../assets/css/style.css";
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/Sidebar1";
 
 
 import { useEffect, useState } from "react";

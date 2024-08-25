@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import Header from '../Header';
-import Sidebar from '../Sidebar';
+import Sidebar from '../Sidebar1';
 import Image from 'next/image';
 import Link from 'next/link';
 import './globals.css';

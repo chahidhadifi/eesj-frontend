@@ -4,7 +4,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import Link from 'next/link'
 
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/Sidebar1";
 
 import FeatherIcon from 'feather-icons-react/build/FeatherIcon';
 import { Profileuser, cameraicon, doctor, medalicon, medalicon02, medalicon03, menuicon16 } from '@components/imagepath';

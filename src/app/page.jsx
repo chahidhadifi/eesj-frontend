@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/Sidebar1";
 import { morning_img_02, bu, gp, tv, cb ,i} from "@components/imagepath";
 import { useRouter } from "next/navigation";
 import { Card } from "antd";
@@ -135,20 +135,7 @@ const Home = () => {
                       Bonjour, <span>Dr. El Amrani Mohamed </span>
                     </h2>
                     <p>Bonne journée au travail</p>
-                    <div className="star-rating" style={{ display: "inline-block", marginTop: '20px' }}>
-                      {renderStars(rating)}
-                    </div>
                     <div style={{ display: "inline-block", marginTop: "-4px" }}>
-                      <div className="container-exclamation align-up" style={{ marginLeft: "10px", display: "flex" }}>
-                        <span
-                          className="status-orange"
-                          style={{ cursor: "default", fontWeight: 'bold', color: 'black' }}
-                          data-bs-toggle="tooltip"
-                          data-bs-title="Si  le nombre des étoiles est faible, complétez toutes les informations de votre profil."
-                        >
-                          !
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -303,7 +290,7 @@ const Home = () => {
               {/* <p style={{ fontWeight: "550" }}>Dernières nouvelles de santé</p> */}
               <div className="d-flex flex-row mt-4">
                 <box-icon type='solid' name='news' color='#2E37A4'></box-icon>
-                <p className="mx-2" style={{ fontWeight: '550' }}>Dernières nouvelles de santé</p>
+                <p className="mx-2" style={{ fontWeight: '550' }}>A la une</p>
               </div>
               {news.slice(0, 10).length > 0 ? (
                 news.slice(0, 10).map((article, index) => (
