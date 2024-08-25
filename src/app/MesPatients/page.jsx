@@ -93,6 +93,8 @@ const MyPatients = () => {
         dataIndex: 3,
         width: 200,
         render: (text) => <span style={{ whiteSpace: 'pre-wrap', marginLeft: '25px' }}>{text}</span>,
+        sorter: (a, b) => `${a[2]} ${a[1]}`.localeCompare(`${b[2]} ${b[1]}`)
+
     },
     {
         title: <span style={{ marginLeft: '20px' }}>Age</span>,
@@ -102,7 +104,7 @@ const MyPatients = () => {
         sorter: (a, b) => b[3].localeCompare(a[3])
     },
     {
-        title: <span style={{ marginLeft: '20px' }}>Maladie</span>,
+        title: <span style={{ marginLeft: '20px' }}>Motif de consultation</span>,
         dataIndex: 5,
         width: 250,
         render: (text) => <span style={{ textAlign: 'center' }}>{text}</span>,
